@@ -1,0 +1,4 @@
+entity Org {
+	id Long,
+    name String
+}
