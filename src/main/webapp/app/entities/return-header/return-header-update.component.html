@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-return-header-heading" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.home.createOrEditLabel">Create or edit a Return Header</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.fromNum" for="field_fromNum" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.fromNum' | translate">From Num</label>
+                    <input type="number" class="form-control" name="fromNum" id="field_fromNum"
+                           formControlName="fromNum"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.vCode" for="field_vCode" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.vCode' | translate">V Code</label>
+                    <input type="text" class="form-control" name="vCode" id="field_vCode"
+                           formControlName="vCode"/>
+                    <div *ngIf="editForm.get('vCode')!.invalid && (editForm.get('vCode')!.dirty || editForm.get('vCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.mCode" for="field_mCode" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.mCode' | translate">M Code</label>
+                    <input type="text" class="form-control" name="mCode" id="field_mCode"
+                           formControlName="mCode"/>
+                    <div *ngIf="editForm.get('mCode')!.invalid && (editForm.get('mCode')!.dirty || editForm.get('mCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.quantity" for="field_quantity" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.quantity' | translate">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.createdBy" for="field_createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.createdBy' | translate">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.createdDate" for="field_createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.createdDate' | translate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.lastModifiedBy" for="field_lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.lastModifiedBy' | translate">Last Modified By</label>
+                    <input type="text" class="form-control" name="lastModifiedBy" id="field_lastModifiedBy"
+                           formControlName="lastModifiedBy"/>
+                    <div *ngIf="editForm.get('lastModifiedBy')!.invalid && (editForm.get('lastModifiedBy')!.dirty || editForm.get('lastModifiedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastModifiedBy')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.returnHeader.lastModifiedDate" for="field_lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.lastModifiedDate' | translate">Last Modified Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastModifiedDate" type="datetime-local" class="form-control" name="lastModifiedDate" formControlName="lastModifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

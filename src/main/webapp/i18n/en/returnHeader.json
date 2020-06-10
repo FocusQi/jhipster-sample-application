@@ -1,0 +1,39 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "returnHeader": {
+      "home": {
+        "title": "Return Headers",
+        "createLabel": "Create a new Return Header",
+        "createOrEditLabel": "Create or edit a Return Header",
+        "notFound": "No Return Headers found"
+      },
+      "created": "A new Return Header is created with identifier {{ param }}",
+      "updated": "A Return Header is updated with identifier {{ param }}",
+      "deleted": "A Return Header is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Return Header {{ id }}?"
+      },
+      "detail": {
+        "title": "Return Header"
+      },
+      "fromNum": "From Num",
+      "vCode": "V Code",
+      "mCode": "M Code",
+      "quantity": "Quantity",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "help": {
+        "fromNum": "退货单号",
+        "vCode": "供应商编码",
+        "mCode": "物料编码",
+        "quantity": "数量",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

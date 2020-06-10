@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="returnHeader">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.detail.title">Return Header</span> {{ returnHeader.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.fromNum" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.fromNum' | translate">From Num</span></dt>
+                <dd>
+                    <span>{{ returnHeader.fromNum }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.vCode" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.vCode' | translate">V Code</span></dt>
+                <dd>
+                    <span>{{ returnHeader.vCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.mCode" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.mCode' | translate">M Code</span></dt>
+                <dd>
+                    <span>{{ returnHeader.mCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.quantity" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.quantity' | translate">Quantity</span></dt>
+                <dd>
+                    <span>{{ returnHeader.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ returnHeader.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ returnHeader.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ returnHeader.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.returnHeader.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.returnHeader.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ returnHeader.lastModifiedDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/return-header', returnHeader.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
