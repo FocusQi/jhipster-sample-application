@@ -1,0 +1,19 @@
+/** 退货信息单头表 */
+entity ReturnHeader {
+	/** 退货单号 */
+	fromNum Integer,
+    /** 供应商编码 */
+    vCode String maxlength(32),
+    /** 物料编码 */
+    mCode String maxlength(32),
+    /** 数量 */
+    quantity Integer,
+    /** 创建者 */
+	createdBy String maxlength(32),
+    /** 创建日期 */
+    createdDate Instant,
+    /** 修改者 */
+	lastModifiedBy String maxlength(32),
+    /** 修改日期 */
+    lastModifiedDate Instant
+}
