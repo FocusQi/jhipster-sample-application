@@ -1,0 +1,35 @@
+/** 退货信息单头表 */
+entity SrmMsgList {
+	/** MSG ID */
+	msgId Integer,
+    /** topic */
+    msgTopic String maxlength(500),
+    /** 信息内容 */
+    msgContent String maxlength(4000),
+    /** 收信人 */
+    msgMailTo String maxlength(4000),
+    /** SMS To */
+	msgSmsTo String maxlength(500),
+    /** 创建日期 */
+    msgCreateTime Instant,
+    /** 发送日期 */
+    msgSendTime Instant,
+    /** 消息状态 */
+	msgStatus String maxlength(3),
+    /** 消息状态 */
+	msfMemo String maxlength(50),
+    /** 消息状态 */
+	msgToBackUp String maxlength(2),
+    /** 消息状态 */
+	remark String maxlength(4000),
+    /** 修改者 */
+	lastModifiedBy String maxlength(32),
+    /** 创建者 */
+    createdBy String,
+    /** 创建日期 */
+    createdDate Instant,
+    /** 修改者 */
+    lastModifiedBy String,
+    /** 修改日期 */
+    lastModifiedDate Instant
+}
