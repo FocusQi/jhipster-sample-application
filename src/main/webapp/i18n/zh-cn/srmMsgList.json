@@ -1,0 +1,53 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "srmMsgList": {
+      "home": {
+        "title": "Srm Msg Lists",
+        "createLabel": "创建新 Srm Msg List",
+        "createOrEditLabel": "创建或编辑 Srm Msg List",
+        "notFound": "No Srm Msg Lists found"
+      },
+      "created": "Srm Msg List {{ param }} 创建成功",
+      "updated": "Srm Msg List {{ param }} 更新成功",
+      "deleted": "Srm Msg List {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Srm Msg List {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Srm Msg List"
+      },
+      "msgId": "Msg Id",
+      "msgTopic": "Msg Topic",
+      "msgContent": "Msg Content",
+      "msgMailTo": "Msg Mail To",
+      "msgSmsTo": "Msg Sms To",
+      "msgCreateTime": "Msg Create Time",
+      "msgSendTime": "Msg Send Time",
+      "msgStatus": "Msg Status",
+      "msfMemo": "Msf Memo",
+      "msgToBackUp": "Msg To Back Up",
+      "remark": "Remark",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedDate": "Last Modified Date",
+      "help": {
+        "msgId": "MSG ID",
+        "msgTopic": "topic",
+        "msgContent": "信息内容",
+        "msgMailTo": "收信人",
+        "msgSmsTo": "SMS To",
+        "msgCreateTime": "创建日期",
+        "msgSendTime": "发送日期",
+        "msgStatus": "消息状态",
+        "msfMemo": "消息状态",
+        "msgToBackUp": "消息状态",
+        "remark": "消息状态",
+        "lastModifiedBy": "修改者",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

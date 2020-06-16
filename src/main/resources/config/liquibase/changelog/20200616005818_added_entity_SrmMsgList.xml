@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity SrmMsgList.
+    -->
+    <changeSet id="20200616005818-1" author="jhipster">
+        <createTable tableName="srm_msg_list" remarks="退货信息单头表">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="msg_id" type="integer" remarks="MSG ID">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_topic" type="varchar(500)" remarks="topic">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_content" type="varchar(4000)" remarks="信息内容">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_mail_to" type="varchar(4000)" remarks="收信人">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_sms_to" type="varchar(500)" remarks="SMS To">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_create_time" type="datetime" remarks="创建日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_send_time" type="datetime" remarks="发送日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_status" type="varchar(3)" remarks="消息状态">
+                <constraints nullable="true" />
+            </column>
+            <column name="msf_memo" type="varchar(50)" remarks="消息状态">
+                <constraints nullable="true" />
+            </column>
+            <column name="msg_to_back_up" type="varchar(2)" remarks="消息状态">
+                <constraints nullable="true" />
+            </column>
+            <column name="remark" type="varchar(4000)" remarks="消息状态">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)" remarks="修改者">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)" remarks="创建者">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_date" type="datetime" remarks="创建日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="datetime" remarks="修改日期">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="srm_msg_list" columnName="msg_create_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="srm_msg_list" columnName="msg_send_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="srm_msg_list" columnName="created_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="srm_msg_list" columnName="last_modified_date" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20200616005818-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200616005818-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/srm_msg_list.csv"
+                  separator=";"
+                  tableName="srm_msg_list">
+            <column name="id" type="numeric"/>
+            <column name="msg_id" type="numeric"/>
+            <column name="msg_topic" type="string"/>
+            <column name="msg_content" type="string"/>
+            <column name="msg_mail_to" type="string"/>
+            <column name="msg_sms_to" type="string"/>
+            <column name="msg_create_time" type="datetime"/>
+            <column name="msg_send_time" type="datetime"/>
+            <column name="msg_status" type="string"/>
+            <column name="msf_memo" type="string"/>
+            <column name="msg_to_back_up" type="string"/>
+            <column name="remark" type="string"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_date" type="datetime"/>
+            <column name="last_modified_date" type="datetime"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
