@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.home.title">Quotation Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-quotation-info" [routerLink]="['/quotation-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.home.createLabel">
+            Create a new Quotation Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="quotationInfos?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.home.notFound">No quotationInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="quotationInfos && quotationInfos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.latestQuotation">Latest Quotation</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.minQty">Min Qty</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.validDate">Valid Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.deliveryDays">Delivery Days</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.historyPrice">History Price</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.currentTaxPrice">Current Tax Price</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.currentPriceValidDate">Current Price Valid Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.netPrice">Net Price</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.netUrl">Net Url</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.remark">Remark</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.lastModifiedBy">Last Modified By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.lastModifiedDate">Last Modified Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.materialRound">Material Round</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.priceCompare">Price Compare</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let quotationInfo of quotationInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/quotation-info', quotationInfo.id, 'view']">{{ quotationInfo.id }}</a></td>
+                    <td>{{ quotationInfo.latestQuotation }}</td>
+                    <td>{{ quotationInfo.minQty }}</td>
+                    <td>{{ quotationInfo.validDate | date:'mediumDate' }}</td>
+                    <td>{{ quotationInfo.deliveryDays }}</td>
+                    <td>{{ quotationInfo.historyPrice }}</td>
+                    <td>{{ quotationInfo.currentTaxPrice }}</td>
+                    <td>{{ quotationInfo.currentPriceValidDate | date:'mediumDate' }}</td>
+                    <td>{{ quotationInfo.netPrice }}</td>
+                    <td>{{ quotationInfo.netUrl }}</td>
+                    <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.QuotationStatus.' + quotationInfo.status }}">{{ quotationInfo.status }}</td>
+                    <td>{{ quotationInfo.remark }}</td>
+                    <td>{{ quotationInfo.createdBy }}</td>
+                    <td>{{ quotationInfo.createdDate | date:'medium' }}</td>
+                    <td>{{ quotationInfo.lastModifiedBy }}</td>
+                    <td>{{ quotationInfo.lastModifiedDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="quotationInfo.materialRound">
+                            <a [routerLink]="['/material-round', quotationInfo.materialRound?.id, 'view']" >{{ quotationInfo.materialRound?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="quotationInfo.priceCompare">
+                            <a [routerLink]="['/price-compare', quotationInfo.priceCompare?.id, 'view']" >{{ quotationInfo.priceCompare?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/quotation-info', quotationInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/quotation-info', quotationInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(quotationInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

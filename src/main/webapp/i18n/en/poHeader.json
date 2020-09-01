@@ -1,0 +1,22 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "poHeader": {
+      "home": {
+        "title": "Po Headers",
+        "createLabel": "Create a new Po Header",
+        "createOrEditLabel": "Create or edit a Po Header",
+        "notFound": "No Po Headers found"
+      },
+      "created": "A new Po Header is created with identifier {{ param }}",
+      "updated": "A Po Header is updated with identifier {{ param }}",
+      "deleted": "A Po Header is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Po Header {{ id }}?"
+      },
+      "detail": {
+        "title": "Po Header"
+      },
+      "priceCompare": "Price Compare"
+    }
+  }
+}

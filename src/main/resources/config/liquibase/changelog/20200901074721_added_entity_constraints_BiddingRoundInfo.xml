@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity BiddingRoundInfo.
+    -->
+    <changeSet id="20200901074721-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="header_id"
+                                 baseTableName="srm_bidding_round_info"
+                                 constraintName="fk_srm_bidding_round_info_header_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="srm_bidding_quotation_header"/>
+
+    </changeSet>
+</databaseChangeLog>

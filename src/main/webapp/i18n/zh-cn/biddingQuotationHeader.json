@@ -1,0 +1,54 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "biddingQuotationHeader": {
+      "home": {
+        "title": "Bidding Quotation Headers",
+        "createLabel": "创建新 Bidding Quotation Header",
+        "createOrEditLabel": "创建或编辑 Bidding Quotation Header",
+        "notFound": "No Bidding Quotation Headers found"
+      },
+      "created": "Bidding Quotation Header {{ param }} 创建成功",
+      "updated": "Bidding Quotation Header {{ param }} 更新成功",
+      "deleted": "Bidding Quotation Header {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Bidding Quotation Header {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Bidding Quotation Header"
+      },
+      "biddingCode": "Bidding Code",
+      "modeType": "Mode Type",
+      "biddingType": "Bidding Type",
+      "issuanceDate": "Issuance Date",
+      "biddingTimes": "Bidding Times",
+      "sumTimes": "Sum Times",
+      "maxQuotationTimes": "Max Quotation Times",
+      "status": "Status",
+      "costListRequired": "Cost List Required",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "priceCompare": "Price Compare",
+      "opener": "Opener",
+      "roundInfo": "Round Info",
+      "help": {
+        "biddingCode": "竞价单编号",
+        "modeType": "模式类型",
+        "biddingType": "竞价类型",
+        "issuanceDate": "开立日期",
+        "biddingTimes": "竞价轮数",
+        "sumTimes": "总轮数",
+        "maxQuotationTimes": "每次竞价可报价次数",
+        "status": "竞价状态",
+        "costListRequired": "是否必需填写成本清单",
+        "description": "竞价说明",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

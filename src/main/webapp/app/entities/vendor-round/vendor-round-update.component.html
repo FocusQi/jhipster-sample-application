@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-vendor-round-heading" jhiTranslate="jhipsterSampleApplicationApp.vendorRound.home.createOrEditLabel">Create or edit a Vendor Round</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.vendorRound.createdBy" for="field_createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.vendorRound.help.createdBy' | translate">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.vendorRound.createdDate" for="field_createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.vendorRound.help.createdDate' | translate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.vendorRound.lastModifiedBy" for="field_lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.vendorRound.help.lastModifiedBy' | translate">Last Modified By</label>
+                    <input type="text" class="form-control" name="lastModifiedBy" id="field_lastModifiedBy"
+                           formControlName="lastModifiedBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.vendorRound.lastModifiedDate" for="field_lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.vendorRound.help.lastModifiedDate' | translate">Last Modified Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastModifiedDate" type="datetime-local" class="form-control" name="lastModifiedDate" formControlName="lastModifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.vendorRound.vendor" for="field_vendor">Vendor</label>
+                    <select class="form-control" id="field_vendor" name="vendor" formControlName="vendor">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vendorOption.id === editForm.get('vendor')!.value?.id ? editForm.get('vendor')!.value : vendorOption" *ngFor="let vendorOption of vendors; trackBy: trackById">{{ vendorOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.vendorRound.roundInfo" for="field_roundInfo">Round Info</label>
+                    <select class="form-control" id="field_roundInfo" name="roundInfo" formControlName="roundInfo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="biddingRoundInfoOption.id === editForm.get('roundInfo')!.value?.id ? editForm.get('roundInfo')!.value : biddingRoundInfoOption" *ngFor="let biddingRoundInfoOption of biddingroundinfos; trackBy: trackById">{{ biddingRoundInfoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

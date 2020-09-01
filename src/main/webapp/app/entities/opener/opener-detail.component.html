@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opener">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.opener.detail.title">Opener</span> {{ opener.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opener.userId" [ngbTooltip]="'jhipsterSampleApplicationApp.opener.help.userId' | translate">User Id</span></dt>
+                <dd>
+                    <span>{{ opener.userId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opener.secretKey" [ngbTooltip]="'jhipsterSampleApplicationApp.opener.help.secretKey' | translate">Secret Key</span></dt>
+                <dd>
+                    <span>{{ opener.secretKey }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opener.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.opener.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ opener.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opener.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.opener.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ opener.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opener.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.opener.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ opener.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opener.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.opener.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ opener.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.opener.bqHeader">Bq Header</span></dt>
+                <dd>
+                    <div *ngIf="opener.bqHeader">
+                        <a [routerLink]="['/bidding-quotation-header', opener.bqHeader?.id, 'view']">{{ opener.bqHeader?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opener', opener.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
