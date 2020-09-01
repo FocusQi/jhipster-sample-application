@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biddingMaterialRound">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.detail.title">Bidding Material Round</span> {{ biddingMaterialRound.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.needQty" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingMaterialRound.help.needQty' | translate">Need Qty</span></dt>
+                <dd>
+                    <span>{{ biddingMaterialRound.needQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.priceCeiling" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingMaterialRound.help.priceCeiling' | translate">Price Ceiling</span></dt>
+                <dd>
+                    <span>{{ biddingMaterialRound.priceCeiling }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.fileUrl" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingMaterialRound.help.fileUrl' | translate">File Url</span></dt>
+                <dd>
+                    <span>{{ biddingMaterialRound.fileUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingMaterialRound.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ biddingMaterialRound.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingMaterialRound.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ biddingMaterialRound.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingMaterialRound.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ biddingMaterialRound.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingMaterialRound.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ biddingMaterialRound.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.material">Material</span></dt>
+                <dd>
+                    <div *ngIf="biddingMaterialRound.material">
+                        <a [routerLink]="['/material', biddingMaterialRound.material?.id, 'view']">{{ biddingMaterialRound.material?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.roundInfo">Round Info</span></dt>
+                <dd>
+                    <div *ngIf="biddingMaterialRound.roundInfo">
+                        <a [routerLink]="['/bidding-round-info', biddingMaterialRound.roundInfo?.id, 'view']">{{ biddingMaterialRound.roundInfo?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bidding-material-round', biddingMaterialRound.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

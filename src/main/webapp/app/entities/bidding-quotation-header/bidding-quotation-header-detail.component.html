@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biddingQuotationHeader">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.detail.title">Bidding Quotation Header</span> {{ biddingQuotationHeader.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingCode" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.biddingCode' | translate">Bidding Code</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.biddingCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.modeType" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.modeType' | translate">Mode Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.ModeType.' + biddingQuotationHeader.modeType }}">{{ biddingQuotationHeader.modeType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingType" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.biddingType' | translate">Bidding Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.BiddingType.' + biddingQuotationHeader.biddingType }}">{{ biddingQuotationHeader.biddingType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.issuanceDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.issuanceDate' | translate">Issuance Date</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.issuanceDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingTimes" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.biddingTimes' | translate">Bidding Times</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.biddingTimes }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.sumTimes" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.sumTimes' | translate">Sum Times</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.sumTimes }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.maxQuotationTimes" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.maxQuotationTimes' | translate">Max Quotation Times</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.maxQuotationTimes }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.status" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.BiddingStatus.' + biddingQuotationHeader.status }}">{{ biddingQuotationHeader.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.costListRequired" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.costListRequired' | translate">Cost List Required</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.costListRequired }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.description" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.description' | translate">Description</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationHeader.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.priceCompare">Price Compare</span></dt>
+                <dd>
+                    <div *ngIf="biddingQuotationHeader.priceCompare">
+                        <a [routerLink]="['/bidding-price-compare', biddingQuotationHeader.priceCompare?.id, 'view']">{{ biddingQuotationHeader.priceCompare?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bidding-quotation-header', biddingQuotationHeader.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

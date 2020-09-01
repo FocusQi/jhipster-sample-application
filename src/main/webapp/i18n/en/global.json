@@ -7,6 +7,19 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "biddingQuotationHeader": "Bidding Quotation Header",
+        "biddingOpener": "Bidding Opener",
+        "biddingRoundInfo": "Bidding Round Info",
+        "biddingVendorRound": "Bidding Vendor Round",
+        "biddingMaterialRound": "Bidding Material Round",
+        "bomTemplateHeader": "Bom Template Header",
+        "bomTemplateInfo": "Bom Template Info",
+        "bomTemplateInfoColumn": "Bom Template Info Column",
+        "biddingQuotationInfo": "Bidding Quotation Info",
+        "biddingPriceCompare": "Bidding Price Compare",
+        "vendor": "Vendor",
+        "material": "Material",
+        "poHeader": "Po Header",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

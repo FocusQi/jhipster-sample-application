@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.home.title">Bidding Quotation Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bidding-quotation-info" [routerLink]="['/bidding-quotation-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.home.createLabel">
+            Create a new Bidding Quotation Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="biddingQuotationInfos?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.home.notFound">No biddingQuotationInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="biddingQuotationInfos && biddingQuotationInfos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.latestQuotation">Latest Quotation</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.minQty">Min Qty</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.validDate">Valid Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.deliveryDays">Delivery Days</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.historyPrice">History Price</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.currentTaxPrice">Current Tax Price</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.currentPriceValidDate">Current Price Valid Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.netPrice">Net Price</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.netUrl">Net Url</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.remark">Remark</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.lastModifiedBy">Last Modified By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.lastModifiedDate">Last Modified Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.materialRound">Material Round</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.priceCompare">Price Compare</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let biddingQuotationInfo of biddingQuotationInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/bidding-quotation-info', biddingQuotationInfo.id, 'view']">{{ biddingQuotationInfo.id }}</a></td>
+                    <td>{{ biddingQuotationInfo.latestQuotation }}</td>
+                    <td>{{ biddingQuotationInfo.minQty }}</td>
+                    <td>{{ biddingQuotationInfo.validDate | date:'mediumDate' }}</td>
+                    <td>{{ biddingQuotationInfo.deliveryDays }}</td>
+                    <td>{{ biddingQuotationInfo.historyPrice }}</td>
+                    <td>{{ biddingQuotationInfo.currentTaxPrice }}</td>
+                    <td>{{ biddingQuotationInfo.currentPriceValidDate | date:'mediumDate' }}</td>
+                    <td>{{ biddingQuotationInfo.netPrice }}</td>
+                    <td>{{ biddingQuotationInfo.netUrl }}</td>
+                    <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.QuotationStatus.' + biddingQuotationInfo.status }}">{{ biddingQuotationInfo.status }}</td>
+                    <td>{{ biddingQuotationInfo.remark }}</td>
+                    <td>{{ biddingQuotationInfo.createdBy }}</td>
+                    <td>{{ biddingQuotationInfo.createdDate | date:'medium' }}</td>
+                    <td>{{ biddingQuotationInfo.lastModifiedBy }}</td>
+                    <td>{{ biddingQuotationInfo.lastModifiedDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="biddingQuotationInfo.materialRound">
+                            <a [routerLink]="['/bidding-material-round', biddingQuotationInfo.materialRound?.id, 'view']" >{{ biddingQuotationInfo.materialRound?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="biddingQuotationInfo.priceCompare">
+                            <a [routerLink]="['/bidding-price-compare', biddingQuotationInfo.priceCompare?.id, 'view']" >{{ biddingQuotationInfo.priceCompare?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bidding-quotation-info', biddingQuotationInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bidding-quotation-info', biddingQuotationInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(biddingQuotationInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

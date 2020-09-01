@@ -1,0 +1,47 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "bomTemplateInfo": {
+      "home": {
+        "title": "Bom Template Infos",
+        "createLabel": "Create a new Bom Template Info",
+        "createOrEditLabel": "Create or edit a Bom Template Info",
+        "notFound": "No Bom Template Infos found"
+      },
+      "created": "A new Bom Template Info is created with identifier {{ param }}",
+      "updated": "A Bom Template Info is updated with identifier {{ param }}",
+      "deleted": "A Bom Template Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bom Template Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Bom Template Info"
+      },
+      "uom": "Uom",
+      "useQty": "Use Qty",
+      "unitPrice": "Unit Price",
+      "total": "Total",
+      "tax": "Tax",
+      "taxTotal": "Tax Total",
+      "remark": "Remark",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "column": "Column",
+      "header": "Header",
+      "help": {
+        "uom": "单位",
+        "useQty": "用量",
+        "unitPrice": "单价",
+        "total": "合计（未税）",
+        "tax": "税率",
+        "taxTotal": "合计（含税）",
+        "remark": "备注",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

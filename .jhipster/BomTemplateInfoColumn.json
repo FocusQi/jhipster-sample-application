@@ -1,0 +1,41 @@
+{
+  "name": "BomTemplateInfoColumn",
+  "fields": [
+    {
+      "fieldName": "sortIndex",
+      "fieldType": "Integer",
+      "javadoc": "顺序"
+    },
+    {
+      "fieldName": "columnName",
+      "fieldType": "String",
+      "javadoc": "列名"
+    },
+    {
+      "fieldName": "columnValue",
+      "fieldType": "String",
+      "javadoc": "列值"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "bomTemplateInfo",
+      "otherEntityRelationshipName": "column",
+      "relationshipName": "info",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901081503",
+  "javadoc": "成本清单明细列\\n@author cq",
+  "entityTableName": "srm_bom_template_info_column",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

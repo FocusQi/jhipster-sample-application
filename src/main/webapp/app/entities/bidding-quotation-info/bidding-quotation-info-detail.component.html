@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biddingQuotationInfo">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.detail.title">Bidding Quotation Info</span> {{ biddingQuotationInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.latestQuotation" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.latestQuotation' | translate">Latest Quotation</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.latestQuotation }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.minQty" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.minQty' | translate">Min Qty</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.minQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.validDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.validDate' | translate">Valid Date</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.validDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.deliveryDays" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.deliveryDays' | translate">Delivery Days</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.deliveryDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.historyPrice" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.historyPrice' | translate">History Price</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.historyPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.currentTaxPrice" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.currentTaxPrice' | translate">Current Tax Price</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.currentTaxPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.currentPriceValidDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.currentPriceValidDate' | translate">Current Price Valid Date</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.currentPriceValidDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.netPrice" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.netPrice' | translate">Net Price</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.netPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.netUrl" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.netUrl' | translate">Net Url</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.netUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.status" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.QuotationStatus.' + biddingQuotationInfo.status }}">{{ biddingQuotationInfo.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.remark" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationInfo.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ biddingQuotationInfo.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.materialRound">Material Round</span></dt>
+                <dd>
+                    <div *ngIf="biddingQuotationInfo.materialRound">
+                        <a [routerLink]="['/bidding-material-round', biddingQuotationInfo.materialRound?.id, 'view']">{{ biddingQuotationInfo.materialRound?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationInfo.priceCompare">Price Compare</span></dt>
+                <dd>
+                    <div *ngIf="biddingQuotationInfo.priceCompare">
+                        <a [routerLink]="['/bidding-price-compare', biddingQuotationInfo.priceCompare?.id, 'view']">{{ biddingQuotationInfo.priceCompare?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bidding-quotation-info', biddingQuotationInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

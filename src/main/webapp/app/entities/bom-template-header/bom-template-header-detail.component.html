@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bomTemplateHeader">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.detail.title">Bom Template Header</span> {{ bomTemplateHeader.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.templateCode" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.templateCode' | translate">Template Code</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.templateCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.templateName" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.templateName' | translate">Template Name</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.templateName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.templateType" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.templateType' | translate">Template Type</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.templateType }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.remark" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ bomTemplateHeader.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.materialRound">Material Round</span></dt>
+                <dd>
+                    <div *ngIf="bomTemplateHeader.materialRound">
+                        <a [routerLink]="['/bidding-material-round', bomTemplateHeader.materialRound?.id, 'view']">{{ bomTemplateHeader.materialRound?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bom-template-header', bomTemplateHeader.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

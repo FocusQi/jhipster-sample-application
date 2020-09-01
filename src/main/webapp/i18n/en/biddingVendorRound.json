@@ -1,0 +1,33 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "biddingVendorRound": {
+      "home": {
+        "title": "Bidding Vendor Rounds",
+        "createLabel": "Create a new Bidding Vendor Round",
+        "createOrEditLabel": "Create or edit a Bidding Vendor Round",
+        "notFound": "No Bidding Vendor Rounds found"
+      },
+      "created": "A new Bidding Vendor Round is created with identifier {{ param }}",
+      "updated": "A Bidding Vendor Round is updated with identifier {{ param }}",
+      "deleted": "A Bidding Vendor Round is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bidding Vendor Round {{ id }}?"
+      },
+      "detail": {
+        "title": "Bidding Vendor Round"
+      },
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "vendor": "Vendor",
+      "roundInfo": "Round Info",
+      "help": {
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

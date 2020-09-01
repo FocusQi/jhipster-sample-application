@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.home.title">Bidding Material Rounds</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bidding-material-round" [routerLink]="['/bidding-material-round/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.home.createLabel">
+            Create a new Bidding Material Round
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="biddingMaterialRounds?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.home.notFound">No biddingMaterialRounds found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="biddingMaterialRounds && biddingMaterialRounds.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.needQty">Need Qty</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.priceCeiling">Price Ceiling</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.fileUrl">File Url</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.lastModifiedBy">Last Modified By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.lastModifiedDate">Last Modified Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.material">Material</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingMaterialRound.roundInfo">Round Info</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let biddingMaterialRound of biddingMaterialRounds ;trackBy: trackId">
+                    <td><a [routerLink]="['/bidding-material-round', biddingMaterialRound.id, 'view']">{{ biddingMaterialRound.id }}</a></td>
+                    <td>{{ biddingMaterialRound.needQty }}</td>
+                    <td>{{ biddingMaterialRound.priceCeiling }}</td>
+                    <td>{{ biddingMaterialRound.fileUrl }}</td>
+                    <td>{{ biddingMaterialRound.createdBy }}</td>
+                    <td>{{ biddingMaterialRound.createdDate | date:'medium' }}</td>
+                    <td>{{ biddingMaterialRound.lastModifiedBy }}</td>
+                    <td>{{ biddingMaterialRound.lastModifiedDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="biddingMaterialRound.material">
+                            <a [routerLink]="['/material', biddingMaterialRound.material?.id, 'view']" >{{ biddingMaterialRound.material?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="biddingMaterialRound.roundInfo">
+                            <a [routerLink]="['/bidding-round-info', biddingMaterialRound.roundInfo?.id, 'view']" >{{ biddingMaterialRound.roundInfo?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bidding-material-round', biddingMaterialRound.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bidding-material-round', biddingMaterialRound.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(biddingMaterialRound)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

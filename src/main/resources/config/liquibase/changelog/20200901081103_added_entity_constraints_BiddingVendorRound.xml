@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity BiddingVendorRound.
+    -->
+    <changeSet id="20200901081103-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="vendor_id"
+                                 baseTableName="srm_bidding_vendor_round"
+                                 constraintName="fk_srm_bidding_vendor_round_vendor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vm_vendor"/>
+
+        <addForeignKeyConstraint baseColumnNames="round_info_id"
+                                 baseTableName="srm_bidding_vendor_round"
+                                 constraintName="fk_srm_bidding_vendor_round_round_info_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="srm_bidding_round_info"/>
+
+    </changeSet>
+</databaseChangeLog>

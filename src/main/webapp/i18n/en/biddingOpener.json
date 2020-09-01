@@ -1,0 +1,36 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "biddingOpener": {
+      "home": {
+        "title": "Bidding Openers",
+        "createLabel": "Create a new Bidding Opener",
+        "createOrEditLabel": "Create or edit a Bidding Opener",
+        "notFound": "No Bidding Openers found"
+      },
+      "created": "A new Bidding Opener is created with identifier {{ param }}",
+      "updated": "A Bidding Opener is updated with identifier {{ param }}",
+      "deleted": "A Bidding Opener is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bidding Opener {{ id }}?"
+      },
+      "detail": {
+        "title": "Bidding Opener"
+      },
+      "userId": "User Id",
+      "secretKey": "Secret Key",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "bqHeader": "Bq Header",
+      "help": {
+        "userId": "开启人",
+        "secretKey": "秘钥",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

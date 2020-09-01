@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bomTemplateInfo">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.detail.title">Bom Template Info</span> {{ bomTemplateInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.uom" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.uom' | translate">Uom</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.uom }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.useQty" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.useQty' | translate">Use Qty</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.useQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.unitPrice" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.unitPrice' | translate">Unit Price</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.unitPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.total" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.total' | translate">Total</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.total }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.tax" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.tax' | translate">Tax</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.tax }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.taxTotal" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.taxTotal' | translate">Tax Total</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.taxTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.remark" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfo.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ bomTemplateInfo.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.header">Header</span></dt>
+                <dd>
+                    <div *ngIf="bomTemplateInfo.header">
+                        <a [routerLink]="['/bom-template-header', bomTemplateInfo.header?.id, 'view']">{{ bomTemplateInfo.header?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bom-template-info', bomTemplateInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

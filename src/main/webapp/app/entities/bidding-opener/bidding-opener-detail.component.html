@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biddingOpener">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.detail.title">Bidding Opener</span> {{ biddingOpener.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.userId" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingOpener.help.userId' | translate">User Id</span></dt>
+                <dd>
+                    <span>{{ biddingOpener.userId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.secretKey" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingOpener.help.secretKey' | translate">Secret Key</span></dt>
+                <dd>
+                    <span>{{ biddingOpener.secretKey }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingOpener.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ biddingOpener.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingOpener.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ biddingOpener.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingOpener.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ biddingOpener.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingOpener.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ biddingOpener.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingOpener.bqHeader">Bq Header</span></dt>
+                <dd>
+                    <div *ngIf="biddingOpener.bqHeader">
+                        <a [routerLink]="['/bidding-quotation-header', biddingOpener.bqHeader?.id, 'view']">{{ biddingOpener.bqHeader?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bidding-opener', biddingOpener.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

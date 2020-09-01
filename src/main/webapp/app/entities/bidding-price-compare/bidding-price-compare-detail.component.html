@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biddingPriceCompare">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.detail.title">Bidding Price Compare</span> {{ biddingPriceCompare.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.compareCode" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingPriceCompare.help.compareCode' | translate">Compare Code</span></dt>
+                <dd>
+                    <span>{{ biddingPriceCompare.compareCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.status" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingPriceCompare.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.CompareStatus.' + biddingPriceCompare.status }}">{{ biddingPriceCompare.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.description" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingPriceCompare.help.description' | translate">Description</span></dt>
+                <dd>
+                    <span>{{ biddingPriceCompare.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingPriceCompare.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ biddingPriceCompare.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingPriceCompare.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ biddingPriceCompare.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingPriceCompare.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ biddingPriceCompare.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingPriceCompare.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingPriceCompare.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ biddingPriceCompare.lastModifiedDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bidding-price-compare', biddingPriceCompare.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

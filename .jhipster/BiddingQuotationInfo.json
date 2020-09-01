@@ -1,0 +1,112 @@
+{
+  "name": "BiddingQuotationInfo",
+  "fields": [
+    {
+      "fieldName": "latestQuotation",
+      "fieldType": "Double",
+      "javadoc": "最新报价"
+    },
+    {
+      "fieldName": "minQty",
+      "fieldType": "Double",
+      "javadoc": "最小订单量"
+    },
+    {
+      "fieldName": "validDate",
+      "fieldType": "LocalDate",
+      "javadoc": "价格有效期"
+    },
+    {
+      "fieldName": "deliveryDays",
+      "fieldType": "Integer",
+      "javadoc": "订单后交期"
+    },
+    {
+      "fieldName": "historyPrice",
+      "fieldType": "Integer",
+      "javadoc": "历史报价"
+    },
+    {
+      "fieldName": "currentTaxPrice",
+      "fieldType": "Integer",
+      "javadoc": "现行价格（含税）"
+    },
+    {
+      "fieldName": "currentPriceValidDate",
+      "fieldType": "LocalDate",
+      "javadoc": "现行价格有效期"
+    },
+    {
+      "fieldName": "netPrice",
+      "fieldType": "Double",
+      "javadoc": "网络价格"
+    },
+    {
+      "fieldName": "netUrl",
+      "fieldType": "String",
+      "javadoc": "网络连接"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "QuotationStatus",
+      "javadoc": "竞价状态",
+      "fieldValues": "BEGIN,COMPLETE,FAILED",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String",
+      "javadoc": "备注"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "biddingMaterialRound",
+      "otherEntityRelationshipName": "quotationInfo",
+      "relationshipName": "materialRound",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "biddingPriceCompare",
+      "otherEntityRelationshipName": "quotationInfo",
+      "relationshipName": "priceCompare",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901081603",
+  "javadoc": "报价详情\\n@author cq",
+  "entityTableName": "srm_bidding_quotation_info",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
