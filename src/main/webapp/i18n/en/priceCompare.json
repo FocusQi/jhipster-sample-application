@@ -1,0 +1,40 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "priceCompare": {
+      "home": {
+        "title": "Price Compares",
+        "createLabel": "Create a new Price Compare",
+        "createOrEditLabel": "Create or edit a Price Compare",
+        "notFound": "No Price Compares found"
+      },
+      "created": "A new Price Compare is created with identifier {{ param }}",
+      "updated": "A Price Compare is updated with identifier {{ param }}",
+      "deleted": "A Price Compare is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Price Compare {{ id }}?"
+      },
+      "detail": {
+        "title": "Price Compare"
+      },
+      "compareCode": "Compare Code",
+      "status": "Status",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "quotationInfo": "Quotation Info",
+      "poHeader": "Po Header",
+      "bqHeader": "Bq Header",
+      "help": {
+        "compareCode": "比价编号",
+        "status": "比价状态",
+        "description": "比价说明",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

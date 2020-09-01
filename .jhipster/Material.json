@@ -1,0 +1,17 @@
+{
+  "name": "Material",
+  "fields": [],
+  "relationships": [],
+  "changelogDate": "20200901075146",
+  "javadoc": "物料\\n@author cq",
+  "entityTableName": "sc_material",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

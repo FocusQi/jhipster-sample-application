@@ -1,0 +1,11 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "BiddingType": {
+      "null": "",
+      "PO_ORDER_BIDDING": "PO_ORDER_BIDDING",
+      "NON_MATERIAL_BIDDING": "NON_MATERIAL_BIDDING",
+      "MATERIAL_BIDDING": "MATERIAL_BIDDING",
+      "SPECIAL_PROJECT_BIDDING": "SPECIAL_PROJECT_BIDDING"
+    }
+  }
+}

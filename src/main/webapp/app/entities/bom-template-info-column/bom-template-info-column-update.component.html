@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bom-template-info-column-heading" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfoColumn.home.createOrEditLabel">Create or edit a Bom Template Info Column</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfoColumn.sortIndex" for="field_sortIndex" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfoColumn.help.sortIndex' | translate">Sort Index</label>
+                    <input type="number" class="form-control" name="sortIndex" id="field_sortIndex"
+                           formControlName="sortIndex"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfoColumn.columnName" for="field_columnName" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfoColumn.help.columnName' | translate">Column Name</label>
+                    <input type="text" class="form-control" name="columnName" id="field_columnName"
+                           formControlName="columnName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfoColumn.columnValue" for="field_columnValue" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateInfoColumn.help.columnValue' | translate">Column Value</label>
+                    <input type="text" class="form-control" name="columnValue" id="field_columnValue"
+                           formControlName="columnValue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfoColumn.info" for="field_info">Info</label>
+                    <select class="form-control" id="field_info" name="info" formControlName="info">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bomTemplateInfoOption.id === editForm.get('info')!.value?.id ? editForm.get('info')!.value : bomTemplateInfoOption" *ngFor="let bomTemplateInfoOption of bomtemplateinfos; trackBy: trackById">{{ bomTemplateInfoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
