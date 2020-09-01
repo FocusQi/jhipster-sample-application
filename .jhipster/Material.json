@@ -1,0 +1,25 @@
+{
+  "name": "Material",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "materialRound",
+      "otherEntityRelationshipName": "material",
+      "javadoc": "一个物料有多个物料伦次信息",
+      "relationshipName": "materialRound"
+    }
+  ],
+  "changelogDate": "20200901072654",
+  "javadoc": "物料\\n@author cq",
+  "entityTableName": "sc_material",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -14,7 +14,27 @@
     <property name="uuidType" value="uuid" dbms="h2, mssql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071554_added_entity_BiddingQuotationHeader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071654_added_entity_Opener.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071754_added_entity_BiddingRoundInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071854_added_entity_VendorRound.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071954_added_entity_MaterialRound.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072054_added_entity_BomTemplateHeader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072154_added_entity_BomTemplateInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072254_added_entity_BomTemplateInfoColumn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072354_added_entity_QuotationInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072454_added_entity_PriceCompare.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072554_added_entity_Vendor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072654_added_entity_Material.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200901071554_added_entity_constraints_BiddingQuotationHeader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071754_added_entity_constraints_BiddingRoundInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071854_added_entity_constraints_VendorRound.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901071954_added_entity_constraints_MaterialRound.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072054_added_entity_constraints_BomTemplateHeader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072154_added_entity_constraints_BomTemplateInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072254_added_entity_constraints_BomTemplateInfoColumn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200901072354_added_entity_constraints_QuotationInfo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

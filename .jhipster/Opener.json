@@ -1,0 +1,54 @@
+{
+  "name": "Opener",
+  "fields": [
+    {
+      "fieldName": "userId",
+      "fieldType": "String",
+      "javadoc": "开启人",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "secretKey",
+      "fieldType": "String",
+      "javadoc": "秘钥",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200901071654",
+  "javadoc": "开启人\\n@author cq",
+  "entityTableName": "srm_opener",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

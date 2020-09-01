@@ -1,0 +1,30 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "bomTemplateInfoColumn": {
+      "home": {
+        "title": "Bom Template Info Columns",
+        "createLabel": "创建新 Bom Template Info Column",
+        "createOrEditLabel": "创建或编辑 Bom Template Info Column",
+        "notFound": "No Bom Template Info Columns found"
+      },
+      "created": "Bom Template Info Column {{ param }} 创建成功",
+      "updated": "Bom Template Info Column {{ param }} 更新成功",
+      "deleted": "Bom Template Info Column {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Bom Template Info Column {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Bom Template Info Column"
+      },
+      "sortIndex": "Sort Index",
+      "columnName": "Column Name",
+      "columnValue": "Column Value",
+      "info": "Info",
+      "help": {
+        "sortIndex": "顺序",
+        "columnName": "列名",
+        "columnValue": "列值"
+      }
+    }
+  }
+}

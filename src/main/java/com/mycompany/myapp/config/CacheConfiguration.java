@@ -47,6 +47,28 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.BiddingQuotationHeader.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingQuotationHeader.class.getName() + ".roundInfos");
+            createCache(cm, com.mycompany.myapp.domain.Opener.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingRoundInfo.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingRoundInfo.class.getName() + ".vendorRounds");
+            createCache(cm, com.mycompany.myapp.domain.BiddingRoundInfo.class.getName() + ".materialRounds");
+            createCache(cm, com.mycompany.myapp.domain.VendorRound.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.MaterialRound.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.MaterialRound.class.getName() + ".quotationInfos");
+            createCache(cm, com.mycompany.myapp.domain.MaterialRound.class.getName() + ".bomTemplateHeaders");
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateHeader.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateHeader.class.getName() + ".infos");
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateInfo.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateInfo.class.getName() + ".columns");
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateInfoColumn.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.QuotationInfo.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.PriceCompare.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.PriceCompare.class.getName() + ".quotationInfos");
+            createCache(cm, com.mycompany.myapp.domain.Vendor.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Vendor.class.getName() + ".vendorRounds");
+            createCache(cm, com.mycompany.myapp.domain.Material.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Material.class.getName() + ".materialRounds");
             // jhipster-needle-ehcache-add-entry
         };
     }

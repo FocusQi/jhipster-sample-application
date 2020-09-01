@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="quotationInfo">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.detail.title">Quotation Info</span> {{ quotationInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.latestQuotation" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.latestQuotation' | translate">Latest Quotation</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.latestQuotation }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.minQty" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.minQty' | translate">Min Qty</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.minQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.validDate" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.validDate' | translate">Valid Date</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.validDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.deliveryDays" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.deliveryDays' | translate">Delivery Days</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.deliveryDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.historyPrice" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.historyPrice' | translate">History Price</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.historyPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.currentTaxPrice" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.currentTaxPrice' | translate">Current Tax Price</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.currentTaxPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.currentPriceValidDate" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.currentPriceValidDate' | translate">Current Price Valid Date</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.currentPriceValidDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.netPrice" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.netPrice' | translate">Net Price</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.netPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.netUrl" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.netUrl' | translate">Net Url</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.netUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.status" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.QuotationStatus.' + quotationInfo.status }}">{{ quotationInfo.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.remark" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.quotationInfo.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ quotationInfo.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.materialRound">Material Round</span></dt>
+                <dd>
+                    <div *ngIf="quotationInfo.materialRound">
+                        <a [routerLink]="['/material-round', quotationInfo.materialRound?.id, 'view']">{{ quotationInfo.materialRound?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.quotationInfo.priceCompare">Price Compare</span></dt>
+                <dd>
+                    <div *ngIf="quotationInfo.priceCompare">
+                        <a [routerLink]="['/price-compare', quotationInfo.priceCompare?.id, 'view']">{{ quotationInfo.priceCompare?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/quotation-info', quotationInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
