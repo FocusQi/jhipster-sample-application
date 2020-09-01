@@ -1,0 +1,41 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "bomTemplateHeader": {
+      "home": {
+        "title": "Bom Template Headers",
+        "createLabel": "创建新 Bom Template Header",
+        "createOrEditLabel": "创建或编辑 Bom Template Header",
+        "notFound": "No Bom Template Headers found"
+      },
+      "created": "Bom Template Header {{ param }} 创建成功",
+      "updated": "Bom Template Header {{ param }} 更新成功",
+      "deleted": "Bom Template Header {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Bom Template Header {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Bom Template Header"
+      },
+      "templateCode": "Template Code",
+      "templateName": "Template Name",
+      "templateType": "Template Type",
+      "remark": "Remark",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "info": "Info",
+      "materialRound": "Material Round",
+      "help": {
+        "templateCode": "模板编码",
+        "templateName": "模板名称",
+        "templateType": "模板类型",
+        "remark": "备注",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

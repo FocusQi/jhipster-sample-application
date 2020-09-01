@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.home.title">Bidding Quotation Headers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bidding-quotation-header" [routerLink]="['/bidding-quotation-header/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.home.createLabel">
+            Create a new Bidding Quotation Header
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="biddingQuotationHeaders?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.home.notFound">No biddingQuotationHeaders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="biddingQuotationHeaders && biddingQuotationHeaders.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingCode">Bidding Code</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.modeType">Mode Type</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingType">Bidding Type</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.issuanceDate">Issuance Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingTimes">Bidding Times</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.sumTimes">Sum Times</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.maxQuotationTimes">Max Quotation Times</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.costListRequired">Cost List Required</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.lastModifiedBy">Last Modified By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.lastModifiedDate">Last Modified Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.priceCompare">Price Compare</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let biddingQuotationHeader of biddingQuotationHeaders ;trackBy: trackId">
+                    <td><a [routerLink]="['/bidding-quotation-header', biddingQuotationHeader.id, 'view']">{{ biddingQuotationHeader.id }}</a></td>
+                    <td>{{ biddingQuotationHeader.biddingCode }}</td>
+                    <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.ModeType.' + biddingQuotationHeader.modeType }}">{{ biddingQuotationHeader.modeType }}</td>
+                    <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.BiddingType.' + biddingQuotationHeader.biddingType }}">{{ biddingQuotationHeader.biddingType }}</td>
+                    <td>{{ biddingQuotationHeader.issuanceDate | date:'mediumDate' }}</td>
+                    <td>{{ biddingQuotationHeader.biddingTimes }}</td>
+                    <td>{{ biddingQuotationHeader.sumTimes }}</td>
+                    <td>{{ biddingQuotationHeader.maxQuotationTimes }}</td>
+                    <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.BiddingStatus.' + biddingQuotationHeader.status }}">{{ biddingQuotationHeader.status }}</td>
+                    <td>{{ biddingQuotationHeader.costListRequired }}</td>
+                    <td>{{ biddingQuotationHeader.description }}</td>
+                    <td>{{ biddingQuotationHeader.createdBy }}</td>
+                    <td>{{ biddingQuotationHeader.createdDate | date:'medium' }}</td>
+                    <td>{{ biddingQuotationHeader.lastModifiedBy }}</td>
+                    <td>{{ biddingQuotationHeader.lastModifiedDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="biddingQuotationHeader.priceCompare">
+                            <a [routerLink]="['/price-compare', biddingQuotationHeader.priceCompare?.id, 'view']" >{{ biddingQuotationHeader.priceCompare?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bidding-quotation-header', biddingQuotationHeader.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bidding-quotation-header', biddingQuotationHeader.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(biddingQuotationHeader)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

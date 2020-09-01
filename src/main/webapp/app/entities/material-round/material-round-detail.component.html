@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="materialRound">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.detail.title">Material Round</span> {{ materialRound.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.needQty" [ngbTooltip]="'jhipsterSampleApplicationApp.materialRound.help.needQty' | translate">Need Qty</span></dt>
+                <dd>
+                    <span>{{ materialRound.needQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.priceCeiling" [ngbTooltip]="'jhipsterSampleApplicationApp.materialRound.help.priceCeiling' | translate">Price Ceiling</span></dt>
+                <dd>
+                    <span>{{ materialRound.priceCeiling }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.fileUrl" [ngbTooltip]="'jhipsterSampleApplicationApp.materialRound.help.fileUrl' | translate">File Url</span></dt>
+                <dd>
+                    <span>{{ materialRound.fileUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.materialRound.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ materialRound.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.materialRound.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ materialRound.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.materialRound.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ materialRound.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.materialRound.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ materialRound.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.roundInfo">Round Info</span></dt>
+                <dd>
+                    <div *ngIf="materialRound.roundInfo">
+                        <a [routerLink]="['/bidding-round-info', materialRound.roundInfo?.id, 'view']">{{ materialRound.roundInfo?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.materialRound.material">Material</span></dt>
+                <dd>
+                    <div *ngIf="materialRound.material">
+                        <a [routerLink]="['/material', materialRound.material?.id, 'view']">{{ materialRound.material?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/material-round', materialRound.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
