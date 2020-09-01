@@ -1,0 +1,25 @@
+{
+  "name": "PoHeader",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "biddingPriceCompare",
+      "otherEntityRelationshipName": "poHeader",
+      "relationshipName": "priceCompare",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901082427",
+  "javadoc": "采购订单单头表\\n@author cq",
+  "entityTableName": "sc_po_header",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

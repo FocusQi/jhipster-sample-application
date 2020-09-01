@@ -1,0 +1,83 @@
+{
+  "name": "BiddingRoundInfo",
+  "fields": [
+    {
+      "fieldName": "round",
+      "fieldType": "Integer",
+      "javadoc": "轮次",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startTime",
+      "fieldType": "Instant",
+      "javadoc": "开始时间",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "Instant",
+      "javadoc": "结束时间",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "javadoc": "竞价说明"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "biddingVendorRound",
+      "otherEntityRelationshipName": "roundInfo",
+      "javadoc": "一个竞价轮次详情有多个供应商轮次",
+      "relationshipName": "vendorRound"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "biddingMaterialRound",
+      "otherEntityRelationshipName": "roundInfo",
+      "javadoc": "一个竞价轮次详情有多个物料伦次信息",
+      "relationshipName": "materialRound"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "biddingQuotationHeader",
+      "otherEntityRelationshipName": "roundInfo",
+      "relationshipName": "header",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901081427",
+  "javadoc": "竞价轮次详情\\n@author cq",
+  "entityTableName": "srm_bidding_round_info",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}
