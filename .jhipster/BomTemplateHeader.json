@@ -1,0 +1,82 @@
+{
+  "name": "BomTemplateHeader",
+  "fields": [
+    {
+      "fieldName": "templateCode",
+      "fieldType": "String",
+      "javadoc": "模板编码",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "templateName",
+      "fieldType": "String",
+      "javadoc": "模板名称",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "templateType",
+      "fieldType": "String",
+      "javadoc": "模板类型",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String",
+      "javadoc": "备注"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "bomTemplateInfo",
+      "otherEntityRelationshipName": "header",
+      "javadoc": "一个物料成本清单模板有多个成本清单明细",
+      "relationshipName": "info"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "materialRound",
+      "otherEntityRelationshipName": "bomTemplateHeader",
+      "relationshipName": "materialRound",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901073104",
+  "javadoc": "物料成本清单模板\\n@author cq",
+  "entityTableName": "srm_bom_template_header",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

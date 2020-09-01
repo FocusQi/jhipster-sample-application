@@ -1,0 +1,55 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "quotationInfo": {
+      "home": {
+        "title": "Quotation Infos",
+        "createLabel": "创建新 Quotation Info",
+        "createOrEditLabel": "创建或编辑 Quotation Info",
+        "notFound": "No Quotation Infos found"
+      },
+      "created": "Quotation Info {{ param }} 创建成功",
+      "updated": "Quotation Info {{ param }} 更新成功",
+      "deleted": "Quotation Info {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Quotation Info {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Quotation Info"
+      },
+      "latestQuotation": "Latest Quotation",
+      "minQty": "Min Qty",
+      "validDate": "Valid Date",
+      "deliveryDays": "Delivery Days",
+      "historyPrice": "History Price",
+      "currentTaxPrice": "Current Tax Price",
+      "currentPriceValidDate": "Current Price Valid Date",
+      "netPrice": "Net Price",
+      "netUrl": "Net Url",
+      "status": "Status",
+      "remark": "Remark",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "materialRound": "Material Round",
+      "priceCompare": "Price Compare",
+      "help": {
+        "latestQuotation": "最新报价",
+        "minQty": "最小订单量",
+        "validDate": "价格有效期",
+        "deliveryDays": "订单后交期",
+        "historyPrice": "历史报价",
+        "currentTaxPrice": "现行价格（含税）",
+        "currentPriceValidDate": "现行价格有效期",
+        "netPrice": "网络价格",
+        "netUrl": "网络连接",
+        "status": "竞价状态",
+        "remark": "备注",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}
