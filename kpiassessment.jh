@@ -1,0 +1,828 @@
+application {
+  config {
+    jhiPrefix skylineuaa
+    baseName megaframework
+    packageName com.mega.project.srm
+    applicationType monolith
+    authenticationType jwt
+    buildTool maven
+    databaseType sql
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    cacheProvider ehcache
+    entitySuffix false
+    skipClient true
+    skipUserManagement false
+    serverPort 8082
+  }
+    entities *
+}
+
+/**
+ * 考核群组状态
+ * @author cq
+ */
+enum AssGroupStatus {
+    // 考核中
+    ASSESSING,
+    // 考核完成
+    COMPLETE,
+    // 发布
+    RELEASE
+}
+
+/**
+ * 绩效改善状态
+ * @author cq
+ */
+enum ImproveReportStatus {
+    // 未送出
+    NOT_SEND,
+    // 已回复
+    REPLY,
+    // 未回复
+    NOT_REPLY,
+    // 超期回复
+    OVERDUE_REPLY,
+    // 超期
+    OVERDUE,
+    // 不合格
+    UNQUALIFIED,
+    // 合格
+    QUALIFIED
+}
+
+/**
+ * 考核状态
+ * @author cq
+ */
+enum AssStatus {
+    // 完成
+    COMPLETE,
+    // 审核中
+    UNDER_REVIEW,
+    // 审核通过
+    REVIEW_OK,
+    // 审核拒绝
+    REVIEW_NG,
+    // 未完成
+    NOT_FINISHED,
+    // 逾期
+    OVERDUE
+}
+
+/**
+ * 计算项类型
+ * @author cq
+ */
+enum CalculationItemType {
+    // 自动计算
+    AUTO,
+    // 手动计算
+    MANUAL
+}
+
+/**
+ * 绩效改善类型
+ * @author cq
+ */
+enum ImproveType {
+    // 正常
+    NORMAL,
+    // 异常
+    ABNORMAL
+}
+
+/**
+ * 审批状态
+ * @author cq
+ */
+enum ApprovalStatus {
+    // 合格
+    OK,
+    // 不合格
+    NG
+}
+
+/**
+ * 考核群组
+ * @author cq
+ */
+entity KpiAssGroup(srm_kpi_ass_group) {
+    /**
+     * 考核群组单号
+     */
+    agCode String required,
+    /**
+     * 考核年度
+     */
+    agYear String required,
+    /**
+     * 考核类型
+     */
+    agType String required,
+    /**
+     * 考核月/季度
+     */
+    agPeriod String,
+    /**
+     * 考核开始日期
+     */
+    startDate LocalDate required,
+    /**
+     * 考核结束日期
+     */
+    endDate LocalDate required,
+    /**
+     * 状态
+     */
+    status AssGroupStatus required,
+    /**
+     * 备注
+     */
+    remark String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 模板组
+ * @author cq
+ */
+entity KpiTemplateGroup(srm_kpi_template_group) {
+    /**
+     * 模板组名称
+     */
+    templateGroupName String required,
+    /**
+     * 说明
+     */
+    description String,
+    /**
+     * 是否启用
+     */
+    isActive Boolean,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 分数等级配置
+ * @author cq
+ */
+entity KpiScoreGradeConfig(srm_kpi_score_grade_config) {
+    /**
+     * 开始范围
+     */
+    startRange Integer required,
+    /**
+     * 结束范围
+     */
+    endRange Instant required,
+    /**
+     * 等级
+     */
+    grade String required,
+    /**
+     * 绩效改善
+     */
+    needImprove Boolean,
+    /**
+     * 等级说明
+     */
+    gradeDescription String,
+    /**
+     * 操作说明
+     */
+    operDescription String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 模板组明细
+ * @author cq
+ */
+entity KpiTemplateGroupInfo(srm_kpi_template_group_info) {
+    /**
+     * 计分权重
+     */
+    scoringWeight Integer,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 考核模板
+ * @author cq
+ */
+entity KpiAssTemplate(srm_kpi_ass_template) {
+    /**
+     * 模板名称
+     */
+    templateName String,
+    /**
+     * 文件地址
+     */
+    filePath String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 分数计算配置模板
+ * @author cq
+ */
+entity KpiScoreCalConfig(srm_kpi_score_cal_config) {
+    /**
+     * 模板名称
+     */
+    templateName String required,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 分数计算模板配置项
+ * @author cq
+ */
+entity KpiScoreCalConfigItem(srm_kpi_score_cal_config_item) {
+    /**
+     * 单位
+     */
+    unitType String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 计算项
+ * @author cq
+ */
+entity KpiCalItem(srm_kpi_cal_item) {
+    /**
+     * 计算类型
+     */
+    type CalculationItemType required,
+    /**
+     * 标题
+     */
+    title String required,
+    /**
+     * 计算项名称
+     */
+    calItemName String required,
+    /**
+     * 说明
+     */
+    description String,
+    /**
+     * 权重
+     */
+    weight Integer required,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 分值对照表
+ * @author cq
+ */
+entity KpiScoreReference(srm_kpi_score_reference) {
+    /**
+     * 开始范围
+     */
+    startRange Integer required,
+    /**
+     * 结束范围
+     */
+    endRange Instant required,
+    /**
+     * 得分
+     */
+    score Integer,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 考核模板组详情
+ * @author cq
+ */
+entity KpiAssGroupInfo(srm_kpi_ass_group_info) {
+    /**
+     * 绩效单号
+     */
+    kpiCode String required,
+    /**
+     * 总得分
+     */
+    totalScore Integer,
+    /**
+     * 开始日期
+     */
+    startDate LocalDate required,
+    /**
+     * 结束日期
+     */
+    endDate LocalDate required,
+    /**
+     * 状态
+     */
+    status AssGroupStatus required,
+    /**
+     * 等级
+     */
+    grade String,
+    /**
+     * 等级说明
+     */
+    gradeDescription String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 考核模板详情
+ * @author cq
+ */
+entity KpiAssTemplateInfo(srm_kpi_ass_info) {
+    /**
+     * 得分
+     */
+    score Integer,
+    /**
+     * 权重
+     */
+    weight Integer required,
+    /**
+     * 模板名称
+     */
+    templateName String,
+    /**
+     * 角色
+     */
+    roleName String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 考核模板明细
+ * @author cq
+ */
+entity KpiAssTemplateDetail(srm_kpi_ass_detail) {
+    /**
+     * 考核单号
+     */
+    assCode String required,
+    /**
+     * 总得分
+     */
+    totalScore Integer,
+    /**
+     * 状态
+     */
+    status AssStatus required,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 分数详情
+ * @author cq
+ */
+entity KpiScoreInfo(srm_kpi_score_info) {
+    /**
+     * 计算类型
+     */
+    type CalculationItemType required,
+    /**
+     * 计算项名称
+     */
+    calItemName String required,
+    /**
+     * 权重
+     */
+    weight Integer required,
+    /**
+     * 得分
+     */
+    score Integer,
+    /**
+     * 调整分数
+     */
+    changeScore Integer,
+    /**
+     * 调整原因
+     */
+    changeReason String,
+    /**
+     * 是否改变
+     */
+    isChange Boolean,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 绩效改善报告
+ * @author cq
+ */
+entity KpiImproveReport(srm_kpi_improve_report) {
+    /**
+     * 绩效改善类型
+     */
+    type ImproveType required,
+    /**
+     * 改善报告审批时间
+     */
+    approvalDate LocalDate,
+    /**
+     * 审批次数
+     */
+    approvalTimes Integer required,
+    /**
+     * 改善报告建立日期
+     */
+    createTime LocalDate,
+    /**
+     * 上传改善报告有效期
+     */
+    validDate LocalDate,
+    /**
+     * 状态
+     */
+    status ImproveReportStatus required,
+    /**
+     * 绩效改善报告模板
+     */
+    templateFilePath String,
+    /**
+     * 异常编码
+     */
+    abnormalCode String,
+    /**
+     * 异常添加日期
+     */
+    abnormalCreateDate LocalDate,
+    /**
+     * 异常分类
+     */
+    abnormalType String,
+    /**
+     * 异常等级
+     */
+    abnormalGrade String,
+    /**
+     * 异常名称
+     */
+    abnormalName String,
+    /**
+     * 异常内容
+     */
+    abnormalContent String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 改善报告审批详情
+ * @author cq
+ */
+entity KpiImproveReportInfo(srm_kpi_improve_report_info) {
+    /**
+     * 报告回复时间
+     */
+    replyDate LocalDate,
+    /**
+     * 审批时间
+     */
+    approvalDate LocalDate,
+    /**
+     * 审批结果
+     */
+    status ApprovalStatus,
+    /**
+     * 改善报告文件地址
+     */
+    filePath String,
+    /**
+     * 改善报告评价
+     */
+    improveAppraise String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 供应商
+ * @author cq
+ */
+entity Vendor(vm_vendor){
+}
+
+relationship OneToOne {
+    /**
+     * 【考核模板组详情】和【绩效改善报告】一对一
+     */
+    KpiAssGroupInfo{improveReport} to KpiImproveReport{assGroupInfo}
+}
+
+relationship OneToMany {
+    /**
+     * 一个【模板组】有多个【分数等级配置】
+     */
+    KpiTemplateGroup{scoreGradeConfig} to KpiScoreGradeConfig{templateGroup}
+    /**
+     * 一个【模板组】有多个【模板组明细】
+     */
+    KpiTemplateGroup{templateGroupInfo} to KpiTemplateGroupInfo{templateGroup}
+    /**
+     * 一个【考核模板】有多个【计算项】
+     */
+    KpiAssTemplate{calItem} to KpiCalItem{assTemplate}
+    /**
+     * 一个【分数计算配置模板】有多个【分数计算模板配置项】
+     */
+    KpiScoreCalConfig{scoreCalConfigItem} to KpiScoreCalConfigItem{scoreCalConfig}
+    /**
+     * 一个【分数计算模板配置项】有多个【分值对照表】
+     */
+    KpiScoreCalConfigItem{scoreReference} to KpiScoreReference{scoreCalConfigItem}
+    /**
+     * 一个【考核群组】有多个【考核模板组详情】
+     */
+    KpiAssGroup{assGroupInfo} to KpiAssGroupInfo{assGroup}
+    /**
+     * 一个【考核模板组详情】有多个【考核模板详情】
+     */
+    KpiAssGroupInfo{assTemplateInfo} to KpiAssTemplateInfo{assGroupInfo}
+    /**
+     * 一个【考核模板详情】有多个【考核模板明细】
+     */
+    KpiAssTemplateInfo{assTemplateDetail} to KpiAssTemplateDetail{assTemplateInfo}
+    /**
+     * 一个【考核模板明细】有多个【分数详情】
+     */
+    KpiAssTemplateDetail{scoreInfo} to KpiScoreInfo{assTemplateDetail}
+    /**
+     * 一个【绩效改善报告】有多个【改善报告审批详情】
+     */
+    KpiImproveReport{improveReportInfo} to KpiImproveReportInfo{improveReport}
+}
+
+relationship ManyToOne {
+    /**
+     * 多个【考核群组】属于一个【模板组】
+     */
+    KpiAssGroup{templateGroup} to KpiTemplateGroup
+    /**
+     * 多个【模板组明细】属于一个【考核模板】
+     */
+    KpiTemplateGroupInfo{assTemplate} to KpiAssTemplate
+    /**
+     * 多个【考核模板】属于一个【角色】
+     */
+    KpiAssTemplate{role} to Role
+    /**
+     * 多个【考核模板】属于一个【分数计算配置模板】
+     */
+    KpiAssTemplate{scoreCalConfig} to KpiScoreCalConfig
+    /**
+     * 多个【分数计算模板配置项】属于一个【计算项】
+     */
+    KpiScoreCalConfigItem{calItem} to KpiCalItem
+    /**
+     * 多个【考核模板组详情】属于一个【供应商】
+     */
+    KpiAssGroupInfo{vendor} to Vendor
+    /**
+     * 多个【考核模板详情】属于一个【考核模板】
+     */
+    KpiAssTemplateInfo{assTemplate} to KpiAssTemplate
+    /**
+     * 多个【考核模板明细】属于一个【用户】
+     */
+    KpiAssTemplateDetail{user} to User
+}
+
+relationship ManyToMany {
+    /**
+     * 多个【模板组明细】对应多个【用户表】
+     */
+    KpiTemplateGroupInfo{users} to User{templateGroupInfos}
+}
+
+
+paginate * with pagination
