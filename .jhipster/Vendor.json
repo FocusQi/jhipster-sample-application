@@ -1,0 +1,17 @@
+{
+  "name": "Vendor",
+  "fields": [],
+  "relationships": [],
+  "changelogDate": "20200908075218",
+  "javadoc": "供应商\\n@author cq",
+  "entityTableName": "vm_vendor",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

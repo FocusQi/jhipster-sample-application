@@ -1,0 +1,17 @@
+{
+  "name": "Role",
+  "fields": [],
+  "relationships": [],
+  "changelogDate": "20200908075318",
+  "javadoc": "角色信息\\n@author cq",
+  "entityTableName": "role",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

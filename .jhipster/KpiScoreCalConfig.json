@@ -1,0 +1,52 @@
+{
+  "name": "KpiScoreCalConfig",
+  "fields": [
+    {
+      "fieldName": "templateName",
+      "fieldType": "String",
+      "javadoc": "模板名称",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiScoreCalConfigItem",
+      "otherEntityRelationshipName": "scoreCalConfig",
+      "javadoc": "一个【分数计算配置模板】有多个【分数计算模板配置项】",
+      "relationshipName": "scoreCalConfigItem"
+    }
+  ],
+  "changelogDate": "20200908074218",
+  "javadoc": "分数计算配置模板\\n@author cq",
+  "entityTableName": "srm_kpi_score_cal_config",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

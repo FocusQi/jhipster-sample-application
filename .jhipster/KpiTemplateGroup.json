@@ -1,0 +1,69 @@
+{
+  "name": "KpiTemplateGroup",
+  "fields": [
+    {
+      "fieldName": "templateGroupName",
+      "fieldType": "String",
+      "javadoc": "模板组名称",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "javadoc": "说明"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean",
+      "javadoc": "是否启用"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiScoreGradeConfig",
+      "otherEntityRelationshipName": "templateGroup",
+      "javadoc": "一个【模板组】有多个【分数等级配置】",
+      "relationshipName": "scoreGradeConfig"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiTemplateGroupInfo",
+      "otherEntityRelationshipName": "templateGroup",
+      "javadoc": "一个【模板组】有多个【模板组明细】",
+      "relationshipName": "templateGroupInfo"
+    }
+  ],
+  "changelogDate": "20200908073818",
+  "javadoc": "模板组\\n@author cq",
+  "entityTableName": "srm_kpi_template_group",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

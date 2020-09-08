@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity KpiAssGroupInfo.
+    -->
+    <changeSet id="20200908074618-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="improve_report_id"
+                                 baseTableName="srm_kpi_ass_group_info"
+                                 constraintName="fk_srm_kpi_ass_group_info_improve_report_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="srm_kpi_improve_report"/>
+
+        <addForeignKeyConstraint baseColumnNames="vendor_id"
+                                 baseTableName="srm_kpi_ass_group_info"
+                                 constraintName="fk_srm_kpi_ass_group_info_vendor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vm_vendor"/>
+
+        <addForeignKeyConstraint baseColumnNames="ass_group_id"
+                                 baseTableName="srm_kpi_ass_group_info"
+                                 constraintName="fk_srm_kpi_ass_group_info_ass_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="srm_kpi_ass_group"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,110 @@
+{
+  "name": "KpiAssGroupInfo",
+  "fields": [
+    {
+      "fieldName": "kpiCode",
+      "fieldType": "String",
+      "javadoc": "绩效单号",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "totalScore",
+      "fieldType": "Integer",
+      "javadoc": "总得分"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "javadoc": "开始日期",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate",
+      "javadoc": "结束日期",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AssGroupStatus",
+      "javadoc": "状态",
+      "fieldValues": "ASSESSING,COMPLETE,RELEASE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "grade",
+      "fieldType": "String",
+      "javadoc": "等级"
+    },
+    {
+      "fieldName": "gradeDescription",
+      "fieldType": "String",
+      "javadoc": "等级说明"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "kpiImproveReport",
+      "otherEntityRelationshipName": "assGroupInfo",
+      "javadoc": "【考核模板组详情】和【绩效改善报告】一对一",
+      "relationshipName": "improveReport",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiAssTemplateGroup",
+      "otherEntityRelationshipName": "assGroupInfo",
+      "javadoc": "一个【考核模板组详情】有多个【考核模板详情】",
+      "relationshipName": "assTemplateGroup"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "vendor",
+      "otherEntityRelationshipName": "kpiAssGroupInfo",
+      "javadoc": "多个【考核模板组详情】属于一个【供应商】",
+      "relationshipName": "vendor",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiAssGroup",
+      "otherEntityRelationshipName": "assGroupInfo",
+      "relationshipName": "assGroup",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074618",
+  "javadoc": "考核模板组详情\\n@author cq",
+  "entityTableName": "srm_kpi_ass_group_info",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

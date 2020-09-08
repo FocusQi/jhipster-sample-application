@@ -1,0 +1,68 @@
+{
+  "name": "KpiTemplateGroupInfo",
+  "fields": [
+    {
+      "fieldName": "scoringWeight",
+      "fieldType": "Integer",
+      "javadoc": "计分权重"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiAssTemplate",
+      "otherEntityRelationshipName": "kpiTemplateGroupInfo",
+      "javadoc": "多个【模板组明细】属于一个【考核模板】",
+      "relationshipName": "assTemplate",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "templateGroupInfos",
+      "javadoc": "多个【模板组明细】对应多个【用户表】",
+      "relationshipName": "users",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiTemplateGroup",
+      "otherEntityRelationshipName": "templateGroupInfo",
+      "relationshipName": "templateGroup",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074018",
+  "javadoc": "模板组明细\\n@author cq",
+  "entityTableName": "srm_kpi_template_group_info",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

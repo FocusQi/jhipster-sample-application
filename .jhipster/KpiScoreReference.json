@@ -1,0 +1,63 @@
+{
+  "name": "KpiScoreReference",
+  "fields": [
+    {
+      "fieldName": "startRange",
+      "fieldType": "Integer",
+      "javadoc": "开始范围",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endRange",
+      "fieldType": "Instant",
+      "javadoc": "结束范围",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Integer",
+      "javadoc": "得分"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiScoreCalConfigItem",
+      "otherEntityRelationshipName": "scoreReference",
+      "relationshipName": "scoreCalConfigItem",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074518",
+  "javadoc": "分值对照表\\n@author cq",
+  "entityTableName": "srm_kpi_score_reference",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

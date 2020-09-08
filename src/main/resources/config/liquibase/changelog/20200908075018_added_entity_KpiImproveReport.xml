@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity KpiImproveReport.
+    -->
+    <changeSet id="20200908075018-1" author="jhipster">
+        <createTable tableName="srm_kpi_improve_report" remarks="绩效改善报告\n@author cq">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="type" type="varchar(255)" remarks="绩效改善类型">
+                <constraints nullable="false" />
+            </column>
+            <column name="approval_date" type="date" remarks="改善报告审批时间">
+                <constraints nullable="true" />
+            </column>
+            <column name="approval_times" type="integer" remarks="审批次数">
+                <constraints nullable="false" />
+            </column>
+            <column name="create_time" type="date" remarks="改善报告建立日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_date" type="date" remarks="上传改善报告有效期">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="varchar(255)" remarks="状态">
+                <constraints nullable="false" />
+            </column>
+            <column name="template_file_path" type="varchar(255)" remarks="绩效改善报告模板">
+                <constraints nullable="true" />
+            </column>
+            <column name="abnormal_code" type="varchar(255)" remarks="异常编码">
+                <constraints nullable="true" />
+            </column>
+            <column name="abnormal_create_date" type="date" remarks="异常添加日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="abnormal_type" type="varchar(255)" remarks="异常分类">
+                <constraints nullable="true" />
+            </column>
+            <column name="abnormal_grade" type="varchar(255)" remarks="异常等级">
+                <constraints nullable="true" />
+            </column>
+            <column name="abnormal_name" type="varchar(255)" remarks="异常名称">
+                <constraints nullable="true" />
+            </column>
+            <column name="abnormal_content" type="varchar(255)" remarks="异常内容">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)" remarks="创建者">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_date" type="datetime" remarks="创建日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)" remarks="修改者">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="datetime" remarks="修改日期">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="srm_kpi_improve_report" columnName="created_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="srm_kpi_improve_report" columnName="last_modified_date" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20200908075018-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200908075018-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/srm_kpi_improve_report.csv"
+                  separator=";"
+                  tableName="srm_kpi_improve_report">
+            <column name="id" type="numeric"/>
+            <column name="type" type="string"/>
+            <column name="approval_date" type="date"/>
+            <column name="approval_times" type="numeric"/>
+            <column name="create_time" type="date"/>
+            <column name="valid_date" type="date"/>
+            <column name="status" type="string"/>
+            <column name="template_file_path" type="string"/>
+            <column name="abnormal_code" type="string"/>
+            <column name="abnormal_create_date" type="date"/>
+            <column name="abnormal_type" type="string"/>
+            <column name="abnormal_grade" type="string"/>
+            <column name="abnormal_name" type="string"/>
+            <column name="abnormal_content" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_date" type="datetime"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="last_modified_date" type="datetime"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

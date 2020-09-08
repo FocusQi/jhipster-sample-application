@@ -1,0 +1,101 @@
+{
+  "name": "KpiAssGroup",
+  "fields": [
+    {
+      "fieldName": "agCode",
+      "fieldType": "String",
+      "javadoc": "考核群组单号",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "agYear",
+      "fieldType": "String",
+      "javadoc": "考核年度",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "agType",
+      "fieldType": "String",
+      "javadoc": "考核类型",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "agPeriod",
+      "fieldType": "String",
+      "javadoc": "考核月/季度"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "javadoc": "考核开始日期",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate",
+      "javadoc": "考核结束日期",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AssGroupStatus",
+      "javadoc": "状态",
+      "fieldValues": "ASSESSING,COMPLETE,RELEASE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String",
+      "javadoc": "备注"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiAssGroupInfo",
+      "otherEntityRelationshipName": "assGroup",
+      "javadoc": "一个【考核群组】有多个【考核模板组详情】",
+      "relationshipName": "assGroupInfo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiTemplateGroup",
+      "otherEntityRelationshipName": "kpiAssGroup",
+      "javadoc": "多个【考核群组】属于一个【模板组】",
+      "relationshipName": "templateGroup",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908073718",
+  "javadoc": "考核群组\\n@author cq",
+  "entityTableName": "srm_kpi_ass_group",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

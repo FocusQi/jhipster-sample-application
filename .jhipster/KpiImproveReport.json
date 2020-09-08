@@ -1,0 +1,123 @@
+{
+  "name": "KpiImproveReport",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "ImproveType",
+      "javadoc": "绩效改善类型",
+      "fieldValues": "NORMAL,ABNORMAL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "approvalDate",
+      "fieldType": "LocalDate",
+      "javadoc": "改善报告审批时间"
+    },
+    {
+      "fieldName": "approvalTimes",
+      "fieldType": "Integer",
+      "javadoc": "审批次数",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createTime",
+      "fieldType": "LocalDate",
+      "javadoc": "改善报告建立日期"
+    },
+    {
+      "fieldName": "validDate",
+      "fieldType": "LocalDate",
+      "javadoc": "上传改善报告有效期"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ImproveReportStatus",
+      "javadoc": "状态",
+      "fieldValues": "NOT_SEND,REPLY,NOT_REPLY,OVERDUE_REPLY,OVERDUE,UNQUALIFIED,QUALIFIED",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "templateFilePath",
+      "fieldType": "String",
+      "javadoc": "绩效改善报告模板"
+    },
+    {
+      "fieldName": "abnormalCode",
+      "fieldType": "String",
+      "javadoc": "异常编码"
+    },
+    {
+      "fieldName": "abnormalCreateDate",
+      "fieldType": "LocalDate",
+      "javadoc": "异常添加日期"
+    },
+    {
+      "fieldName": "abnormalType",
+      "fieldType": "String",
+      "javadoc": "异常分类"
+    },
+    {
+      "fieldName": "abnormalGrade",
+      "fieldType": "String",
+      "javadoc": "异常等级"
+    },
+    {
+      "fieldName": "abnormalName",
+      "fieldType": "String",
+      "javadoc": "异常名称"
+    },
+    {
+      "fieldName": "abnormalContent",
+      "fieldType": "String",
+      "javadoc": "异常内容"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiImproveReportInfo",
+      "otherEntityRelationshipName": "improveReport",
+      "javadoc": "一个【绩效改善报告】有多个【改善报告审批详情】",
+      "relationshipName": "improveReportInfo"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "kpiAssGroupInfo",
+      "otherEntityRelationshipName": "improveReport",
+      "relationshipName": "assGroupInfo",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200908075018",
+  "javadoc": "绩效改善报告\\n@author cq",
+  "entityTableName": "srm_kpi_improve_report",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}
