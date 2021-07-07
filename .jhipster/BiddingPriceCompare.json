@@ -1,0 +1,78 @@
+{
+  "name": "BiddingPriceCompare",
+  "fields": [
+    {
+      "fieldName": "compareCode",
+      "fieldType": "String",
+      "javadoc": "比价编号",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "CompareStatus",
+      "javadoc": "比价状态",
+      "fieldValues": "UNDER_REVIEW,REVIEW_OK,REVIEW_NG,SAVE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "javadoc": "比价说明"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "biddingQuotationInfo",
+      "otherEntityRelationshipName": "priceCompare",
+      "javadoc": "一个比价信息有多个报价详情",
+      "relationshipName": "quotationInfo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "poHeader",
+      "otherEntityRelationshipName": "priceCompare",
+      "javadoc": "一个比价信息有多个采购订单单头表",
+      "relationshipName": "poHeader"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "biddingQuotationHeader",
+      "otherEntityRelationshipName": "priceCompare",
+      "relationshipName": "bqHeader",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200901082127",
+  "javadoc": "比价表\\n@author cq",
+  "entityTableName": "srm_bidding_price_compare",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}
