@@ -1,0 +1,168 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-srm-msg-list-heading" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.home.createOrEditLabel">Create or edit a Srm Msg List</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgId" for="field_msgId" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgId' | translate">Msg Id</label>
+                    <input type="number" class="form-control" name="msgId" id="field_msgId"
+                           formControlName="msgId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgTopic" for="field_msgTopic" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgTopic' | translate">Msg Topic</label>
+                    <input type="text" class="form-control" name="msgTopic" id="field_msgTopic"
+                           formControlName="msgTopic"/>
+                    <div *ngIf="editForm.get('msgTopic')!.invalid && (editForm.get('msgTopic')!.dirty || editForm.get('msgTopic')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msgTopic')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 500 }">
+                        This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgContent" for="field_msgContent" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgContent' | translate">Msg Content</label>
+                    <input type="text" class="form-control" name="msgContent" id="field_msgContent"
+                           formControlName="msgContent"/>
+                    <div *ngIf="editForm.get('msgContent')!.invalid && (editForm.get('msgContent')!.dirty || editForm.get('msgContent')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msgContent')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 4000 }">
+                        This field cannot be longer than 4000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgMailTo" for="field_msgMailTo" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgMailTo' | translate">Msg Mail To</label>
+                    <input type="text" class="form-control" name="msgMailTo" id="field_msgMailTo"
+                           formControlName="msgMailTo"/>
+                    <div *ngIf="editForm.get('msgMailTo')!.invalid && (editForm.get('msgMailTo')!.dirty || editForm.get('msgMailTo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msgMailTo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 4000 }">
+                        This field cannot be longer than 4000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgSmsTo" for="field_msgSmsTo" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgSmsTo' | translate">Msg Sms To</label>
+                    <input type="text" class="form-control" name="msgSmsTo" id="field_msgSmsTo"
+                           formControlName="msgSmsTo"/>
+                    <div *ngIf="editForm.get('msgSmsTo')!.invalid && (editForm.get('msgSmsTo')!.dirty || editForm.get('msgSmsTo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msgSmsTo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 500 }">
+                        This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgCreateTime" for="field_msgCreateTime" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgCreateTime' | translate">Msg Create Time</label>
+                    <div class="d-flex">
+                        <input id="field_msgCreateTime" type="datetime-local" class="form-control" name="msgCreateTime" formControlName="msgCreateTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgSendTime" for="field_msgSendTime" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgSendTime' | translate">Msg Send Time</label>
+                    <div class="d-flex">
+                        <input id="field_msgSendTime" type="datetime-local" class="form-control" name="msgSendTime" formControlName="msgSendTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgStatus" for="field_msgStatus" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgStatus' | translate">Msg Status</label>
+                    <input type="text" class="form-control" name="msgStatus" id="field_msgStatus"
+                           formControlName="msgStatus"/>
+                    <div *ngIf="editForm.get('msgStatus')!.invalid && (editForm.get('msgStatus')!.dirty || editForm.get('msgStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msgStatus')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 3 }">
+                        This field cannot be longer than 3 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msfMemo" for="field_msfMemo" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msfMemo' | translate">Msf Memo</label>
+                    <input type="text" class="form-control" name="msfMemo" id="field_msfMemo"
+                           formControlName="msfMemo"/>
+                    <div *ngIf="editForm.get('msfMemo')!.invalid && (editForm.get('msfMemo')!.dirty || editForm.get('msfMemo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msfMemo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgToBackUp" for="field_msgToBackUp" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgToBackUp' | translate">Msg To Back Up</label>
+                    <input type="text" class="form-control" name="msgToBackUp" id="field_msgToBackUp"
+                           formControlName="msgToBackUp"/>
+                    <div *ngIf="editForm.get('msgToBackUp')!.invalid && (editForm.get('msgToBackUp')!.dirty || editForm.get('msgToBackUp')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('msgToBackUp')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2 }">
+                        This field cannot be longer than 2 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.remark" for="field_remark" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.remark' | translate">Remark</label>
+                    <input type="text" class="form-control" name="remark" id="field_remark"
+                           formControlName="remark"/>
+                    <div *ngIf="editForm.get('remark')!.invalid && (editForm.get('remark')!.dirty || editForm.get('remark')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('remark')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 4000 }">
+                        This field cannot be longer than 4000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.lastModifiedBy" for="field_lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.lastModifiedBy' | translate">Last Modified By</label>
+                    <input type="text" class="form-control" name="lastModifiedBy" id="field_lastModifiedBy"
+                           formControlName="lastModifiedBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.createdBy" for="field_createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.createdBy' | translate">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.createdDate" for="field_createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.createdDate' | translate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.lastModifiedDate" for="field_lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.lastModifiedDate' | translate">Last Modified Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastModifiedDate" type="datetime-local" class="form-control" name="lastModifiedDate" formControlName="lastModifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

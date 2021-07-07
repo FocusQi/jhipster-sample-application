@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="srmMsgList">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.detail.title">Srm Msg List</span> {{ srmMsgList.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgId" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgId' | translate">Msg Id</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgId }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgTopic" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgTopic' | translate">Msg Topic</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgTopic }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgContent" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgContent' | translate">Msg Content</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgContent }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgMailTo" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgMailTo' | translate">Msg Mail To</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgMailTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgSmsTo" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgSmsTo' | translate">Msg Sms To</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgSmsTo }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgCreateTime" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgCreateTime' | translate">Msg Create Time</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgCreateTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgSendTime" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgSendTime' | translate">Msg Send Time</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgSendTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgStatus" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgStatus' | translate">Msg Status</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msfMemo" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msfMemo' | translate">Msf Memo</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msfMemo }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.msgToBackUp" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.msgToBackUp' | translate">Msg To Back Up</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.msgToBackUp }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.remark" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.remark }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.srmMsgList.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.srmMsgList.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ srmMsgList.lastModifiedDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/srm-msg-list', srmMsgList.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

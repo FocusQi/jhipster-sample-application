@@ -1,0 +1,125 @@
+{
+  "name": "SrmMsgList",
+  "fields": [
+    {
+      "fieldName": "msgId",
+      "fieldType": "Integer",
+      "javadoc": "MSG ID"
+    },
+    {
+      "fieldName": "msgTopic",
+      "fieldType": "String",
+      "javadoc": "topic",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "500"
+    },
+    {
+      "fieldName": "msgContent",
+      "fieldType": "String",
+      "javadoc": "信息内容",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "4000"
+    },
+    {
+      "fieldName": "msgMailTo",
+      "fieldType": "String",
+      "javadoc": "收信人",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "4000"
+    },
+    {
+      "fieldName": "msgSmsTo",
+      "fieldType": "String",
+      "javadoc": "SMS To",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "500"
+    },
+    {
+      "fieldName": "msgCreateTime",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "msgSendTime",
+      "fieldType": "Instant",
+      "javadoc": "发送日期"
+    },
+    {
+      "fieldName": "msgStatus",
+      "fieldType": "String",
+      "javadoc": "消息状态",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "3"
+    },
+    {
+      "fieldName": "msfMemo",
+      "fieldType": "String",
+      "javadoc": "消息状态",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "msgToBackUp",
+      "fieldType": "String",
+      "javadoc": "消息状态",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "2"
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String",
+      "javadoc": "消息状态",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "4000"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200616005818",
+  "javadoc": "退货信息单头表",
+  "entityTableName": "srm_msg_list",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
