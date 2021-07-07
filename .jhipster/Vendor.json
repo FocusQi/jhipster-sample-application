@@ -1,0 +1,25 @@
+{
+  "name": "Vendor",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vendorRound",
+      "otherEntityRelationshipName": "vendor",
+      "javadoc": "一个供应商有多个供应商轮次",
+      "relationshipName": "vendorRound"
+    }
+  ],
+  "changelogDate": "20200901073604",
+  "javadoc": "供应商\\n@author cq",
+  "entityTableName": "vm_vendor",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,85 @@
+{
+  "name": "MaterialRound",
+  "fields": [
+    {
+      "fieldName": "needQty",
+      "fieldType": "Double",
+      "javadoc": "需求量",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "priceCeiling",
+      "fieldType": "Double",
+      "javadoc": "最高限价"
+    },
+    {
+      "fieldName": "fileUrl",
+      "fieldType": "Double",
+      "javadoc": "设计文件地址"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "quotationInfo",
+      "otherEntityRelationshipName": "materialRound",
+      "javadoc": "一个物料伦次信息有多个报价详情",
+      "relationshipName": "quotationInfo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "bomTemplateHeader",
+      "otherEntityRelationshipName": "materialRound",
+      "javadoc": "一个物料伦次信息有多个物料成本清单模板",
+      "relationshipName": "bomTemplateHeader"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "biddingRoundInfo",
+      "otherEntityRelationshipName": "materialRound",
+      "relationshipName": "roundInfo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "material",
+      "otherEntityRelationshipName": "materialRound",
+      "relationshipName": "material",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901073004",
+  "javadoc": "物料轮次\\n@author cq",
+  "entityTableName": "srm_material_round",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,559 @@
+/**
+ * 竞价类型
+ * @author cq
+ */
+enum BiddingType {
+	// 采购申请单竞价
+    PO_ORDER_BIDDING,
+	// 非材料竞价
+    NON_MATERIAL_BIDDING,
+    // 材料竞价
+    MATERIAL_BIDDING,
+    // 特殊项目竞价
+    SPECIAL_PROJECT_BIDDING
+}
+
+/**
+ * 竞价类型
+ * @author cq
+ */
+enum BiddingStatus {
+	// 轮竞价中
+	BIDDING,
+	// 轮竞价完成
+	COMPLETE,
+	// 轮竞价失败
+    FAILED,
+    // 竞价结束
+    FINISH,
+    // 已比价
+    COMPARE,
+    // 审核中
+    REVIEW,
+    // 审核通过
+    REVIEW_OK,
+    // 审核失败
+    REVIEW_NG
+}
+
+/**
+ * 模式类型
+ * @author cq
+ */
+enum ModeType {
+	// 竞价
+	BIDDING,
+	// 询价
+	INQUIRY
+}
+
+/**
+ * 报价详情状态
+ * @author cq
+ */
+enum QuotationStatus {
+	// 开始竞价
+	BEGIN,
+	// 竞价完成
+	COMPLETE,
+	// 竞价失败
+    FAILED
+}
+
+/**
+ * 比价状态
+ * @author cq
+ */
+enum CompareStatus {
+	// 审核中
+	UNDER_REVIEW,
+	// 审核通过
+	REVIEW_OK,
+	// 审核拒绝
+    REVIEW_NG,
+    // 保存
+    SAVE
+}
+
+
+/**
+ * 询报价头表
+ * @author cq
+ */
+entity BiddingQuotationHeader(srm_bidding_quotation_header) {
+    /**
+     * 竞价单编号
+     */
+    biddingCode String required,
+    /**
+     * 模式类型
+     */
+    modeType ModeType required,
+    /**
+     * 竞价类型
+     */
+    biddingType BiddingType required,
+    /**
+     * 开立日期
+     */
+    issuanceDate LocalDate required,
+    /**
+     * 竞价轮数
+     */
+    biddingTimes Integer,
+    /**
+     * 总轮数
+     */
+    sumTimes Integer,
+    /**
+     * 每次竞价可报价次数
+     */
+    maxQuotationTimes Integer,
+    /**
+     * 竞价状态
+     */
+    status BiddingStatus required,
+    /**
+     * 是否必需填写成本清单
+     */
+    costListRequired Boolean,
+    /**
+     * 竞价说明
+     */
+    description String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 开启人
+ * @author cq
+ */
+entity Opener(srm_opener) {
+    /**
+     * 开启人
+     */
+    userId String required,
+    /**
+     * 秘钥
+     */
+    secretKey String required,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 竞价轮次详情
+ * @author cq
+ */
+entity BiddingRoundInfo(srm_bidding_round_info) {
+    /**
+     * 轮次
+     */
+    round Integer required,
+    /**
+     * 开始时间
+     */
+    startTime Instant required,
+    /**
+     * 结束时间
+     */
+    endTime Instant required,
+    /**
+     * 竞价说明
+     */
+    description String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 供应商轮次
+ * @author cq
+ */
+entity VendorRound(srm_vendor_round) {
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 物料轮次
+ * @author cq
+ */
+entity MaterialRound(srm_material_round) {
+    /**
+     * 需求量
+     */
+    needQty Double required,
+    /**
+     * 最高限价
+     */
+    priceCeiling Double,
+    /**
+     * 设计文件地址
+     */
+    fileUrl Double,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 物料成本清单模板
+ * @author cq
+ */
+entity BomTemplateHeader(srm_bom_template_header) {
+    /**
+     * 模板编码
+     */
+    templateCode String required,
+    /**
+     * 模板名称
+     */
+    templateName String required,
+    /**
+     * 模板类型
+     */
+    templateType String required,
+    /**
+     * 备注
+     */
+    remark String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 成本清单明细
+ * @author cq
+ */
+entity BomTemplateInfo(srm_bom_template_info) {
+    /**
+     * 单位
+     */
+    uom String,
+    /**
+     * 用量
+     */
+    useQty Double,
+    /**
+     * 单价
+     */
+    unitPrice Double,
+    /**
+     * 合计（未税）
+     */
+    total Double,
+    /**
+     * 税率
+     */
+    tax Double,
+    /**
+     * 合计（含税）
+     */
+    taxTotal Double,
+    /**
+     * 备注
+     */
+    remark Double,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 成本清单明细列
+ * @author cq
+ */
+entity BomTemplateInfoColumn(srm_bom_template_info_column) {
+    /**
+     * 顺序
+     */
+    sortIndex Integer,
+    /**
+     * 列名
+     */
+    columnName String,
+    /**
+     * 列值
+     */
+    columnValue String
+}
+
+/**
+ * 报价详情
+ * @author cq
+ */
+entity QuotationInfo(srm_quotation_info) {
+    /**
+     * 最新报价
+     */
+    latestQuotation Double,
+    /**
+     * 最小订单量
+     */
+    minQty Double,
+    /**
+     * 价格有效期
+     */
+    validDate LocalDate,
+    /**
+     * 订单后交期
+     */
+    deliveryDays Integer,
+    /**
+     * 历史报价
+     */
+    historyPrice Integer,
+    /**
+     * 现行价格（含税）
+     */
+    currentTaxPrice Integer,
+    /**
+     * 现行价格有效期
+     */
+    currentPriceValidDate LocalDate,
+    /**
+     * 网络价格
+     */
+    netPrice Double,
+    /**
+     * 网络连接
+     */
+    netUrl String,
+    /**
+     * 竞价状态
+     */
+    status QuotationStatus required,
+    /**
+     * 备注
+     */
+    remark String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+/**
+ * 比价表
+ * @author cq
+ */
+entity PriceCompare(srm_price_compare) {
+    /**
+     * 比价编号
+     */
+    compareCode String required,
+    /**
+     * 比价状态
+     */
+    status CompareStatus required,
+    /**
+     * 比价说明
+     */
+    description String,
+    /**
+     * 创建者
+     */
+    createdBy String,
+    /**
+     * 创建日期
+     */
+    createdDate Instant,
+    /**
+     * 修改者
+     */
+    lastModifiedBy String,
+    /**
+     * 修改日期
+     */
+    lastModifiedDate Instant
+}
+
+
+/**
+ * 供应商
+ * @author cq
+ */
+entity Vendor(vm_vendor){
+}
+
+/**
+ * 物料
+ * @author cq
+ */
+entity Material(sc_material){
+}
+
+/**
+ * 采购订单单头表
+ * @author cq
+ */
+entity PoHeader(sc_po_header){
+}
+
+relationship OneToOne {
+    /**
+     * 询报价单和比价表一对一
+     */
+    BiddingQuotationHeader{priceCompare} to PriceCompare{bqHeader}
+}
+
+relationship OneToMany {
+    /**
+     * 一个询报价单有多个竞价轮次详情
+     */
+    Opener{bqHeader} to BiddingQuotationHeader{opener}
+    /**
+     * 一个询报价单有多个竞价轮次详情
+     */
+    BiddingQuotationHeader{roundInfo} to BiddingRoundInfo{header}
+    /**
+     * 一个竞价轮次详情有多个供应商轮次
+     */
+    BiddingRoundInfo{vendorRound} to VendorRound{roundInfo}
+    /**
+     * 一个供应商有多个供应商轮次
+     */
+    Vendor{vendorRound} to VendorRound{vendor}
+    /**
+     * 一个竞价轮次详情有多个物料伦次信息
+     */
+    BiddingRoundInfo{materialRound} to MaterialRound{roundInfo}
+    /**
+     * 一个物料有多个物料伦次信息
+     */
+    Material{materialRound} to MaterialRound{material}
+    /**
+     * 一个物料伦次信息有多个报价详情
+     */
+    MaterialRound{quotationInfo} to QuotationInfo{materialRound}
+    /**
+     * 一个物料伦次信息有多个物料成本清单模板
+     */
+    MaterialRound{bomTemplateHeader} to BomTemplateHeader{materialRound}
+    /**
+     * 一个物料成本清单模板有多个成本清单明细
+     */
+    BomTemplateHeader{info} to BomTemplateInfo{header}
+    /**
+     * 一个物料成本清单模板有多个成本清单明细
+     */
+    BomTemplateInfo{column} to BomTemplateInfoColumn{info}
+    /**
+     * 一个比价信息有多个报价详情
+     */
+    PriceCompare{quotationInfo} to QuotationInfo{priceCompare}
+    /**
+     * 一个比价信息有多个采购订单单头表
+     */
+    PriceCompare{poHeader} to PoHeader{priceCompare}
+}
