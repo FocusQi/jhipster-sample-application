@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biddingRoundInfo">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.detail.title">Bidding Round Info</span> {{ biddingRoundInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.round" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.round' | translate">Round</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.round }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.startTime" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.startTime' | translate">Start Time</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.startTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.endTime" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.endTime' | translate">End Time</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.endTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.description" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.description' | translate">Description</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingRoundInfo.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ biddingRoundInfo.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.header">Header</span></dt>
+                <dd>
+                    <div *ngIf="biddingRoundInfo.header">
+                        <a [routerLink]="['/bidding-quotation-header', biddingRoundInfo.header?.id, 'view']">{{ biddingRoundInfo.header?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bidding-round-info', biddingRoundInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+{
+  "name": "BiddingQuotationHeader",
+  "fields": [
+    {
+      "fieldName": "biddingCode",
+      "fieldType": "String",
+      "javadoc": "竞价单编号",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "modeType",
+      "fieldType": "ModeType",
+      "javadoc": "模式类型",
+      "fieldValues": "BIDDING,INQUIRY",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "biddingType",
+      "fieldType": "BiddingType",
+      "javadoc": "竞价类型",
+      "fieldValues": "PO_ORDER_BIDDING,NON_MATERIAL_BIDDING,MATERIAL_BIDDING,SPECIAL_PROJECT_BIDDING",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "issuanceDate",
+      "fieldType": "LocalDate",
+      "javadoc": "开立日期",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "biddingTimes",
+      "fieldType": "Integer",
+      "javadoc": "竞价轮数"
+    },
+    {
+      "fieldName": "sumTimes",
+      "fieldType": "Integer",
+      "javadoc": "总轮数"
+    },
+    {
+      "fieldName": "maxQuotationTimes",
+      "fieldType": "Integer",
+      "javadoc": "每次竞价可报价次数"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "BiddingStatus",
+      "javadoc": "竞价状态",
+      "fieldValues": "BIDDING,COMPLETE,FAILED,FINISH,COMPARE,REVIEW,REVIEW_OK,REVIEW_NG",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "costListRequired",
+      "fieldType": "Boolean",
+      "javadoc": "是否必需填写成本清单"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "javadoc": "竞价说明"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "priceCompare",
+      "otherEntityRelationshipName": "bqHeader",
+      "javadoc": "询报价单和比价表一对一",
+      "relationshipName": "priceCompare",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "opener",
+      "otherEntityRelationshipName": "bqHeader",
+      "javadoc": "一个询报价单有多个开启人",
+      "relationshipName": "opener"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "biddingRoundInfo",
+      "otherEntityRelationshipName": "header",
+      "javadoc": "一个询报价单有多个竞价轮次详情",
+      "relationshipName": "roundInfo"
+    }
+  ],
+  "changelogDate": "20200901074521",
+  "javadoc": "询报价头表\\n@author cq",
+  "entityTableName": "srm_bidding_quotation_header",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

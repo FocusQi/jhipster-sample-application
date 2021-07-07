@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.home.title">Bidding Round Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bidding-round-info" [routerLink]="['/bidding-round-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.home.createLabel">
+            Create a new Bidding Round Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="biddingRoundInfos?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.home.notFound">No biddingRoundInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="biddingRoundInfos && biddingRoundInfos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.round">Round</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.startTime">Start Time</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.endTime">End Time</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.lastModifiedBy">Last Modified By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.lastModifiedDate">Last Modified Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.biddingRoundInfo.header">Header</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let biddingRoundInfo of biddingRoundInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/bidding-round-info', biddingRoundInfo.id, 'view']">{{ biddingRoundInfo.id }}</a></td>
+                    <td>{{ biddingRoundInfo.round }}</td>
+                    <td>{{ biddingRoundInfo.startTime | date:'medium' }}</td>
+                    <td>{{ biddingRoundInfo.endTime | date:'medium' }}</td>
+                    <td>{{ biddingRoundInfo.description }}</td>
+                    <td>{{ biddingRoundInfo.createdBy }}</td>
+                    <td>{{ biddingRoundInfo.createdDate | date:'medium' }}</td>
+                    <td>{{ biddingRoundInfo.lastModifiedBy }}</td>
+                    <td>{{ biddingRoundInfo.lastModifiedDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="biddingRoundInfo.header">
+                            <a [routerLink]="['/bidding-quotation-header', biddingRoundInfo.header?.id, 'view']" >{{ biddingRoundInfo.header?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bidding-round-info', biddingRoundInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bidding-round-info', biddingRoundInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(biddingRoundInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

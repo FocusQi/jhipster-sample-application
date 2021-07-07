@@ -1,0 +1,10 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "QuotationStatus": {
+      "null": "",
+      "BEGIN": "BEGIN",
+      "COMPLETE": "COMPLETE",
+      "FAILED": "FAILED"
+    }
+  }
+}
