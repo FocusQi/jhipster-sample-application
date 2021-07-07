@@ -1,0 +1,168 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bidding-quotation-header-heading" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.home.createOrEditLabel">Create or edit a Bidding Quotation Header</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingCode" for="field_biddingCode" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.biddingCode' | translate">Bidding Code</label>
+                    <input type="text" class="form-control" name="biddingCode" id="field_biddingCode"
+                           formControlName="biddingCode"/>
+                    <div *ngIf="editForm.get('biddingCode')!.invalid && (editForm.get('biddingCode')!.dirty || editForm.get('biddingCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('biddingCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.modeType" for="field_modeType" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.modeType' | translate">Mode Type</label>
+                    <select class="form-control" name="modeType" formControlName="modeType" id="field_modeType">
+                        <option value="BIDDING">{{ 'jhipsterSampleApplicationApp.ModeType.BIDDING' | translate }}</option>
+                        <option value="INQUIRY">{{ 'jhipsterSampleApplicationApp.ModeType.INQUIRY' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('modeType')!.invalid && (editForm.get('modeType')!.dirty || editForm.get('modeType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('modeType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingType" for="field_biddingType" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.biddingType' | translate">Bidding Type</label>
+                    <select class="form-control" name="biddingType" formControlName="biddingType" id="field_biddingType">
+                        <option value="PO_ORDER_BIDDING">{{ 'jhipsterSampleApplicationApp.BiddingType.PO_ORDER_BIDDING' | translate }}</option>
+                        <option value="NON_MATERIAL_BIDDING">{{ 'jhipsterSampleApplicationApp.BiddingType.NON_MATERIAL_BIDDING' | translate }}</option>
+                        <option value="MATERIAL_BIDDING">{{ 'jhipsterSampleApplicationApp.BiddingType.MATERIAL_BIDDING' | translate }}</option>
+                        <option value="SPECIAL_PROJECT_BIDDING">{{ 'jhipsterSampleApplicationApp.BiddingType.SPECIAL_PROJECT_BIDDING' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('biddingType')!.invalid && (editForm.get('biddingType')!.dirty || editForm.get('biddingType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('biddingType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.issuanceDate" for="field_issuanceDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.issuanceDate' | translate">Issuance Date</label>
+                    <div class="input-group">
+                        <input id="field_issuanceDate" type="text" class="form-control" name="issuanceDate" ngbDatepicker #issuanceDateDp="ngbDatepicker" formControlName="issuanceDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="issuanceDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('issuanceDate')!.invalid && (editForm.get('issuanceDate')!.dirty || editForm.get('issuanceDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('issuanceDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.biddingTimes" for="field_biddingTimes" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.biddingTimes' | translate">Bidding Times</label>
+                    <input type="number" class="form-control" name="biddingTimes" id="field_biddingTimes"
+                           formControlName="biddingTimes"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.sumTimes" for="field_sumTimes" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.sumTimes' | translate">Sum Times</label>
+                    <input type="number" class="form-control" name="sumTimes" id="field_sumTimes"
+                           formControlName="sumTimes"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.maxQuotationTimes" for="field_maxQuotationTimes" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.maxQuotationTimes' | translate">Max Quotation Times</label>
+                    <input type="number" class="form-control" name="maxQuotationTimes" id="field_maxQuotationTimes"
+                           formControlName="maxQuotationTimes"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.status" for="field_status" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.status' | translate">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="BIDDING">{{ 'jhipsterSampleApplicationApp.BiddingStatus.BIDDING' | translate }}</option>
+                        <option value="COMPLETE">{{ 'jhipsterSampleApplicationApp.BiddingStatus.COMPLETE' | translate }}</option>
+                        <option value="FAILED">{{ 'jhipsterSampleApplicationApp.BiddingStatus.FAILED' | translate }}</option>
+                        <option value="FINISH">{{ 'jhipsterSampleApplicationApp.BiddingStatus.FINISH' | translate }}</option>
+                        <option value="COMPARE">{{ 'jhipsterSampleApplicationApp.BiddingStatus.COMPARE' | translate }}</option>
+                        <option value="REVIEW">{{ 'jhipsterSampleApplicationApp.BiddingStatus.REVIEW' | translate }}</option>
+                        <option value="REVIEW_OK">{{ 'jhipsterSampleApplicationApp.BiddingStatus.REVIEW_OK' | translate }}</option>
+                        <option value="REVIEW_NG">{{ 'jhipsterSampleApplicationApp.BiddingStatus.REVIEW_NG' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.costListRequired" for="field_costListRequired" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.costListRequired' | translate">Cost List Required</label>
+                    <input type="checkbox" class="form-control" name="costListRequired" id="field_costListRequired"
+                           formControlName="costListRequired"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.description" for="field_description" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.description' | translate">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.createdBy" for="field_createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.createdBy' | translate">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.createdDate" for="field_createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.createdDate' | translate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.lastModifiedBy" for="field_lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.lastModifiedBy' | translate">Last Modified By</label>
+                    <input type="text" class="form-control" name="lastModifiedBy" id="field_lastModifiedBy"
+                           formControlName="lastModifiedBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.lastModifiedDate" for="field_lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingQuotationHeader.help.lastModifiedDate' | translate">Last Modified Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastModifiedDate" type="datetime-local" class="form-control" name="lastModifiedDate" formControlName="lastModifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.biddingQuotationHeader.priceCompare" for="field_priceCompare">Price Compare</label>
+                    <select class="form-control" id="field_priceCompare" name="priceCompare" formControlName="priceCompare">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="priceCompareOption.id === editForm.get('priceCompare')!.value?.id ? editForm.get('priceCompare')!.value : priceCompareOption" *ngFor="let priceCompareOption of pricecompares; trackBy: trackById">{{ priceCompareOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

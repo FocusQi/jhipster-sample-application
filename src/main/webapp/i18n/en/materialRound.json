@@ -1,0 +1,41 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "materialRound": {
+      "home": {
+        "title": "Material Rounds",
+        "createLabel": "Create a new Material Round",
+        "createOrEditLabel": "Create or edit a Material Round",
+        "notFound": "No Material Rounds found"
+      },
+      "created": "A new Material Round is created with identifier {{ param }}",
+      "updated": "A Material Round is updated with identifier {{ param }}",
+      "deleted": "A Material Round is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Material Round {{ id }}?"
+      },
+      "detail": {
+        "title": "Material Round"
+      },
+      "needQty": "Need Qty",
+      "priceCeiling": "Price Ceiling",
+      "fileUrl": "File Url",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "quotationInfo": "Quotation Info",
+      "bomTemplateHeader": "Bom Template Header",
+      "roundInfo": "Round Info",
+      "material": "Material",
+      "help": {
+        "needQty": "需求量",
+        "priceCeiling": "最高限价",
+        "fileUrl": "设计文件地址",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

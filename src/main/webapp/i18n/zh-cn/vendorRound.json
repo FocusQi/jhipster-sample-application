@@ -1,0 +1,33 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "vendorRound": {
+      "home": {
+        "title": "Vendor Rounds",
+        "createLabel": "创建新 Vendor Round",
+        "createOrEditLabel": "创建或编辑 Vendor Round",
+        "notFound": "No Vendor Rounds found"
+      },
+      "created": "Vendor Round {{ param }} 创建成功",
+      "updated": "Vendor Round {{ param }} 更新成功",
+      "deleted": "Vendor Round {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Vendor Round {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Vendor Round"
+      },
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "roundInfo": "Round Info",
+      "vendor": "Vendor",
+      "help": {
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}
