@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.home.title">Bom Template Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bom-template-info" [routerLink]="['/bom-template-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.home.createLabel">
+            Create a new Bom Template Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bomTemplateInfos?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.home.notFound">No bomTemplateInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bomTemplateInfos && bomTemplateInfos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.uom">Uom</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.useQty">Use Qty</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.unitPrice">Unit Price</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.total">Total</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.tax">Tax</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.taxTotal">Tax Total</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.remark">Remark</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.lastModifiedBy">Last Modified By</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.lastModifiedDate">Last Modified Date</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.bomTemplateInfo.header">Header</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bomTemplateInfo of bomTemplateInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/bom-template-info', bomTemplateInfo.id, 'view']">{{ bomTemplateInfo.id }}</a></td>
+                    <td>{{ bomTemplateInfo.uom }}</td>
+                    <td>{{ bomTemplateInfo.useQty }}</td>
+                    <td>{{ bomTemplateInfo.unitPrice }}</td>
+                    <td>{{ bomTemplateInfo.total }}</td>
+                    <td>{{ bomTemplateInfo.tax }}</td>
+                    <td>{{ bomTemplateInfo.taxTotal }}</td>
+                    <td>{{ bomTemplateInfo.remark }}</td>
+                    <td>{{ bomTemplateInfo.createdBy }}</td>
+                    <td>{{ bomTemplateInfo.createdDate | date:'medium' }}</td>
+                    <td>{{ bomTemplateInfo.lastModifiedBy }}</td>
+                    <td>{{ bomTemplateInfo.lastModifiedDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="bomTemplateInfo.header">
+                            <a [routerLink]="['/bom-template-header', bomTemplateInfo.header?.id, 'view']" >{{ bomTemplateInfo.header?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bom-template-info', bomTemplateInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bom-template-info', bomTemplateInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bomTemplateInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
