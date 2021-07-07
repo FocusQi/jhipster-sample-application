@@ -1,0 +1,53 @@
+{
+  "name": "VendorRound",
+  "fields": [
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "biddingRoundInfo",
+      "otherEntityRelationshipName": "vendorRound",
+      "relationshipName": "roundInfo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "vendor",
+      "otherEntityRelationshipName": "vendorRound",
+      "relationshipName": "vendor",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901071854",
+  "javadoc": "供应商轮次\\n@author cq",
+  "entityTableName": "srm_vendor_round",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

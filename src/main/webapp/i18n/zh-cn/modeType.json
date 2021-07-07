@@ -1,0 +1,9 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "ModeType": {
+      "null": "",
+      "BIDDING": "BIDDING",
+      "INQUIRY": "INQUIRY"
+    }
+  }
+}
