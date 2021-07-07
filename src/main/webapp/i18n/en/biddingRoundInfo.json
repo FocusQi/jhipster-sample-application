@@ -1,0 +1,42 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "biddingRoundInfo": {
+      "home": {
+        "title": "Bidding Round Infos",
+        "createLabel": "Create a new Bidding Round Info",
+        "createOrEditLabel": "Create or edit a Bidding Round Info",
+        "notFound": "No Bidding Round Infos found"
+      },
+      "created": "A new Bidding Round Info is created with identifier {{ param }}",
+      "updated": "A Bidding Round Info is updated with identifier {{ param }}",
+      "deleted": "A Bidding Round Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bidding Round Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Bidding Round Info"
+      },
+      "round": "Round",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "vendorRound": "Vendor Round",
+      "materialRound": "Material Round",
+      "header": "Header",
+      "help": {
+        "round": "轮次",
+        "startTime": "开始时间",
+        "endTime": "结束时间",
+        "description": "竞价说明",
+        "createdBy": "创建者",
+        "createdDate": "创建日期",
+        "lastModifiedBy": "修改者",
+        "lastModifiedDate": "修改日期"
+      }
+    }
+  }
+}

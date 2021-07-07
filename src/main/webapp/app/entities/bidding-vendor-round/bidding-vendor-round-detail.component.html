@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biddingVendorRound">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.biddingVendorRound.detail.title">Bidding Vendor Round</span> {{ biddingVendorRound.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingVendorRound.createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingVendorRound.help.createdBy' | translate">Created By</span></dt>
+                <dd>
+                    <span>{{ biddingVendorRound.createdBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingVendorRound.createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingVendorRound.help.createdDate' | translate">Created Date</span></dt>
+                <dd>
+                    <span>{{ biddingVendorRound.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingVendorRound.lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingVendorRound.help.lastModifiedBy' | translate">Last Modified By</span></dt>
+                <dd>
+                    <span>{{ biddingVendorRound.lastModifiedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingVendorRound.lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.biddingVendorRound.help.lastModifiedDate' | translate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{ biddingVendorRound.lastModifiedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingVendorRound.vendor">Vendor</span></dt>
+                <dd>
+                    <div *ngIf="biddingVendorRound.vendor">
+                        <a [routerLink]="['/vendor', biddingVendorRound.vendor?.id, 'view']">{{ biddingVendorRound.vendor?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.biddingVendorRound.roundInfo">Round Info</span></dt>
+                <dd>
+                    <div *ngIf="biddingVendorRound.roundInfo">
+                        <a [routerLink]="['/bidding-round-info', biddingVendorRound.roundInfo?.id, 'view']">{{ biddingVendorRound.roundInfo?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bidding-vendor-round', biddingVendorRound.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

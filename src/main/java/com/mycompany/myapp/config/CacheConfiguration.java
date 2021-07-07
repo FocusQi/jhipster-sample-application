@@ -47,6 +47,29 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.BiddingQuotationHeader.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingQuotationHeader.class.getName() + ".openers");
+            createCache(cm, com.mycompany.myapp.domain.BiddingQuotationHeader.class.getName() + ".roundInfos");
+            createCache(cm, com.mycompany.myapp.domain.BiddingOpener.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingRoundInfo.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingRoundInfo.class.getName() + ".vendorRounds");
+            createCache(cm, com.mycompany.myapp.domain.BiddingRoundInfo.class.getName() + ".materialRounds");
+            createCache(cm, com.mycompany.myapp.domain.BiddingVendorRound.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingMaterialRound.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingMaterialRound.class.getName() + ".quotationInfos");
+            createCache(cm, com.mycompany.myapp.domain.BiddingMaterialRound.class.getName() + ".bomTemplateHeaders");
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateHeader.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateHeader.class.getName() + ".infos");
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateInfo.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateInfo.class.getName() + ".columns");
+            createCache(cm, com.mycompany.myapp.domain.BomTemplateInfoColumn.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingQuotationInfo.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingPriceCompare.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.BiddingPriceCompare.class.getName() + ".quotationInfos");
+            createCache(cm, com.mycompany.myapp.domain.BiddingPriceCompare.class.getName() + ".poHeaders");
+            createCache(cm, com.mycompany.myapp.domain.Vendor.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Material.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.PoHeader.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

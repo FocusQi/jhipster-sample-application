@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bom-template-header-heading" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.home.createOrEditLabel">Create or edit a Bom Template Header</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.templateCode" for="field_templateCode" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.templateCode' | translate">Template Code</label>
+                    <input type="text" class="form-control" name="templateCode" id="field_templateCode"
+                           formControlName="templateCode"/>
+                    <div *ngIf="editForm.get('templateCode')!.invalid && (editForm.get('templateCode')!.dirty || editForm.get('templateCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('templateCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.templateName" for="field_templateName" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.templateName' | translate">Template Name</label>
+                    <input type="text" class="form-control" name="templateName" id="field_templateName"
+                           formControlName="templateName"/>
+                    <div *ngIf="editForm.get('templateName')!.invalid && (editForm.get('templateName')!.dirty || editForm.get('templateName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('templateName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.templateType" for="field_templateType" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.templateType' | translate">Template Type</label>
+                    <input type="text" class="form-control" name="templateType" id="field_templateType"
+                           formControlName="templateType"/>
+                    <div *ngIf="editForm.get('templateType')!.invalid && (editForm.get('templateType')!.dirty || editForm.get('templateType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('templateType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.remark" for="field_remark" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.remark' | translate">Remark</label>
+                    <input type="text" class="form-control" name="remark" id="field_remark"
+                           formControlName="remark"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.createdBy" for="field_createdBy" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.createdBy' | translate">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.createdDate" for="field_createdDate" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.createdDate' | translate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.lastModifiedBy" for="field_lastModifiedBy" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.lastModifiedBy' | translate">Last Modified By</label>
+                    <input type="text" class="form-control" name="lastModifiedBy" id="field_lastModifiedBy"
+                           formControlName="lastModifiedBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.lastModifiedDate" for="field_lastModifiedDate" [ngbTooltip]="'jhipsterSampleApplicationApp.bomTemplateHeader.help.lastModifiedDate' | translate">Last Modified Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastModifiedDate" type="datetime-local" class="form-control" name="lastModifiedDate" formControlName="lastModifiedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bomTemplateHeader.materialRound" for="field_materialRound">Material Round</label>
+                    <select class="form-control" id="field_materialRound" name="materialRound" formControlName="materialRound">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="biddingMaterialRoundOption.id === editForm.get('materialRound')!.value?.id ? editForm.get('materialRound')!.value : biddingMaterialRoundOption" *ngFor="let biddingMaterialRoundOption of biddingmaterialrounds; trackBy: trackById">{{ biddingMaterialRoundOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

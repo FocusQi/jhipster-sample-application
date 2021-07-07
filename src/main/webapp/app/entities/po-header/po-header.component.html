@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.poHeader.home.title">Po Headers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-po-header" [routerLink]="['/po-header/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.poHeader.home.createLabel">
+            Create a new Po Header
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="poHeaders?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.poHeader.home.notFound">No poHeaders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="poHeaders && poHeaders.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterSampleApplicationApp.poHeader.priceCompare">Price Compare</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let poHeader of poHeaders ;trackBy: trackId">
+                    <td><a [routerLink]="['/po-header', poHeader.id, 'view']">{{ poHeader.id }}</a></td>
+                    <td>
+                        <div *ngIf="poHeader.priceCompare">
+                            <a [routerLink]="['/bidding-price-compare', poHeader.priceCompare?.id, 'view']" >{{ poHeader.priceCompare?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/po-header', poHeader.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/po-header', poHeader.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(poHeader)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

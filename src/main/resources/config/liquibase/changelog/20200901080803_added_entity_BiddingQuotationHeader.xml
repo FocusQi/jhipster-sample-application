@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity BiddingQuotationHeader.
+    -->
+    <changeSet id="20200901080803-1" author="jhipster">
+        <createTable tableName="srm_bidding_quotation_header" remarks="询报价头表\n@author cq">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="bidding_code" type="varchar(255)" remarks="竞价单编号">
+                <constraints nullable="false" />
+            </column>
+            <column name="mode_type" type="varchar(255)" remarks="模式类型">
+                <constraints nullable="false" />
+            </column>
+            <column name="bidding_type" type="varchar(255)" remarks="竞价类型">
+                <constraints nullable="false" />
+            </column>
+            <column name="issuance_date" type="date" remarks="开立日期">
+                <constraints nullable="false" />
+            </column>
+            <column name="bidding_times" type="integer" remarks="竞价轮数">
+                <constraints nullable="true" />
+            </column>
+            <column name="sum_times" type="integer" remarks="总轮数">
+                <constraints nullable="true" />
+            </column>
+            <column name="max_quotation_times" type="integer" remarks="每次竞价可报价次数">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="varchar(255)" remarks="竞价状态">
+                <constraints nullable="false" />
+            </column>
+            <column name="cost_list_required" type="boolean" remarks="是否必需填写成本清单">
+                <constraints nullable="true" />
+            </column>
+            <column name="description" type="varchar(255)" remarks="竞价说明">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)" remarks="创建者">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_date" type="datetime" remarks="创建日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)" remarks="修改者">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="datetime" remarks="修改日期">
+                <constraints nullable="true" />
+            </column>
+            <column name="price_compare_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_srm_bidding_quotation_header_price_compare_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="srm_bidding_quotation_header" columnName="created_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="srm_bidding_quotation_header" columnName="last_modified_date" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20200901080803-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200901080803-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/srm_bidding_quotation_header.csv"
+                  separator=";"
+                  tableName="srm_bidding_quotation_header">
+            <column name="id" type="numeric"/>
+            <column name="bidding_code" type="string"/>
+            <column name="mode_type" type="string"/>
+            <column name="bidding_type" type="string"/>
+            <column name="issuance_date" type="date"/>
+            <column name="bidding_times" type="numeric"/>
+            <column name="sum_times" type="numeric"/>
+            <column name="max_quotation_times" type="numeric"/>
+            <column name="status" type="string"/>
+            <column name="cost_list_required" type="boolean"/>
+            <column name="description" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_date" type="datetime"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="last_modified_date" type="datetime"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
