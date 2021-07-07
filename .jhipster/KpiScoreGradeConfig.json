@@ -1,0 +1,79 @@
+{
+  "name": "KpiScoreGradeConfig",
+  "fields": [
+    {
+      "fieldName": "startRange",
+      "fieldType": "Integer",
+      "javadoc": "开始范围",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endRange",
+      "fieldType": "Instant",
+      "javadoc": "结束范围",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "grade",
+      "fieldType": "String",
+      "javadoc": "等级",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "needImprove",
+      "fieldType": "Boolean",
+      "javadoc": "绩效改善"
+    },
+    {
+      "fieldName": "gradeDescription",
+      "fieldType": "String",
+      "javadoc": "等级说明"
+    },
+    {
+      "fieldName": "operDescription",
+      "fieldType": "String",
+      "javadoc": "操作说明"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiTemplateGroup",
+      "otherEntityRelationshipName": "scoreGradeConfig",
+      "relationshipName": "templateGroup",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908073918",
+  "javadoc": "分数等级配置\\n@author cq",
+  "entityTableName": "srm_kpi_score_grade_config",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

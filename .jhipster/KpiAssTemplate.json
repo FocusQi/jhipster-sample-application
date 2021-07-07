@@ -1,0 +1,72 @@
+{
+  "name": "KpiAssTemplate",
+  "fields": [
+    {
+      "fieldName": "templateName",
+      "fieldType": "String",
+      "javadoc": "模板名称"
+    },
+    {
+      "fieldName": "filePath",
+      "fieldType": "String",
+      "javadoc": "文件地址"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiCalItem",
+      "otherEntityRelationshipName": "assTemplate",
+      "javadoc": "一个【考核模板】有多个【计算项】",
+      "relationshipName": "calItem"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "role",
+      "otherEntityRelationshipName": "kpiAssTemplate",
+      "javadoc": "多个【考核模板】属于一个【角色】",
+      "relationshipName": "role",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiScoreCalConfig",
+      "otherEntityRelationshipName": "kpiAssTemplate",
+      "javadoc": "多个【考核模板】属于一个【分数计算配置模板】",
+      "relationshipName": "scoreCalConfig",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074118",
+  "javadoc": "考核模板\\n@author cq",
+  "entityTableName": "srm_kpi_ass_template",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "KpiImproveReportInfo",
+  "fields": [
+    {
+      "fieldName": "replyDate",
+      "fieldType": "LocalDate",
+      "javadoc": "报告回复时间"
+    },
+    {
+      "fieldName": "approvalDate",
+      "fieldType": "LocalDate",
+      "javadoc": "审批时间"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ApprovalStatus",
+      "javadoc": "审批结果",
+      "fieldValues": "OK,NG"
+    },
+    {
+      "fieldName": "filePath",
+      "fieldType": "String",
+      "javadoc": "改善报告文件地址"
+    },
+    {
+      "fieldName": "improveAppraise",
+      "fieldType": "String",
+      "javadoc": "改善报告评价"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiImproveReport",
+      "otherEntityRelationshipName": "improveReportInfo",
+      "relationshipName": "improveReport",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908075118",
+  "javadoc": "改善报告审批详情\\n@author cq",
+  "entityTableName": "srm_kpi_improve_report_info",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

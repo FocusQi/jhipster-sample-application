@@ -1,0 +1,85 @@
+{
+  "name": "KpiScoreInfo",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "CalculationItemType",
+      "javadoc": "计算类型",
+      "fieldValues": "AUTO,MANUAL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "calItemName",
+      "fieldType": "String",
+      "javadoc": "计算项名称",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Integer",
+      "javadoc": "权重",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Integer",
+      "javadoc": "得分"
+    },
+    {
+      "fieldName": "changeScore",
+      "fieldType": "Integer",
+      "javadoc": "调整分数"
+    },
+    {
+      "fieldName": "changeReason",
+      "fieldType": "String",
+      "javadoc": "调整原因"
+    },
+    {
+      "fieldName": "isChange",
+      "fieldType": "Boolean",
+      "javadoc": "是否改变"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiAssTemplateInfo",
+      "otherEntityRelationshipName": "scoreInfo",
+      "relationshipName": "assTemplateInfo",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074918",
+  "javadoc": "分数详情\\n@author cq",
+  "entityTableName": "srm_kpi_score_info",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

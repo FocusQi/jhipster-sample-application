@@ -59,7 +59,7 @@ management:
 
 spring:
   application:
-    name: jhipsterSampleApplication
+    name: megaframework
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by maven when building the JAR file
@@ -84,9 +84,6 @@ spring:
       hibernate.jdbc.batch_size: 25
       hibernate.order_inserts: true
       hibernate.order_updates: true
-      # modify fetch size as necessary
-      hibernate.jdbc.fetch_size: 150
-      hibernate.criteria.literal_handling_mode: BIND
       hibernate.query.fail_on_pagination_over_collection_fetch: true
       hibernate.query.in_clause_parameter_padding: true
     hibernate:
@@ -100,13 +97,13 @@ spring:
     allow-bean-definition-overriding: true
   task:
     execution:
-      thread-name-prefix: jhipster-sample-application-task-
+      thread-name-prefix: megaframework-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: jhipster-sample-application-scheduling-
+      thread-name-prefix: megaframework-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -134,7 +131,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'jhipsterSampleApplicationApp'
+    name: 'megaframeworkApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"
@@ -144,17 +141,17 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: jhipsterSampleApplication@localhost
+    from: megaframework@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: jhipsterSampleApplication API
-    description: jhipsterSampleApplication API documentation
+    title: megaframework API
+    description: megaframework API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:
     contact-url:
     contact-email:
-    license:
+    license: unlicensed
     license-url:
 # ===================================================================
 # Application specific properties

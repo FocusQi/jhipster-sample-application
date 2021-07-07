@@ -1,0 +1,76 @@
+{
+  "name": "KpiCalItem",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "CalculationItemType",
+      "javadoc": "计算类型",
+      "fieldValues": "AUTO,MANUAL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "javadoc": "标题",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "calItemName",
+      "fieldType": "String",
+      "javadoc": "计算项名称",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "javadoc": "说明"
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Integer",
+      "javadoc": "权重",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiAssTemplate",
+      "otherEntityRelationshipName": "calItem",
+      "relationshipName": "assTemplate",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074418",
+  "javadoc": "计算项\\n@author cq",
+  "entityTableName": "srm_kpi_cal_item",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

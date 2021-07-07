@@ -1,0 +1,66 @@
+{
+  "name": "KpiScoreCalConfigItem",
+  "fields": [
+    {
+      "fieldName": "unitType",
+      "fieldType": "String",
+      "javadoc": "单位"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiScoreReference",
+      "otherEntityRelationshipName": "scoreCalConfigItem",
+      "javadoc": "一个【分数计算模板配置项】有多个【分值对照表】",
+      "relationshipName": "scoreReference"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiCalItem",
+      "otherEntityRelationshipName": "kpiScoreCalConfigItem",
+      "javadoc": "多个【分数计算模板配置项】属于一个【计算项】",
+      "relationshipName": "calItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiScoreCalConfig",
+      "otherEntityRelationshipName": "scoreCalConfigItem",
+      "relationshipName": "scoreCalConfig",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074318",
+  "javadoc": "分数计算模板配置项\\n@author cq",
+  "entityTableName": "srm_kpi_score_cal_config_item",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}

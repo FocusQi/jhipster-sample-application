@@ -5,16 +5,45 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
 
     <property name="now" value="now()" dbms="h2"/>
-    <property name="now" value="GETDATE()" dbms="mssql"/>
+    <property name="now" value="now()" dbms="mysql, mariadb"/>
 
     <property name="floatType" value="float4" dbms="postgresql, h2"/>
     <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
     <property name="clobType" value="clob" dbms="h2"/>
     <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
-    <property name="uuidType" value="uuid" dbms="h2, mssql"/>
+    <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908073718_added_entity_KpiAssGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908073818_added_entity_KpiTemplateGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908073918_added_entity_KpiScoreGradeConfig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074018_added_entity_KpiTemplateGroupInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074118_added_entity_KpiAssTemplate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074218_added_entity_KpiScoreCalConfig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074318_added_entity_KpiScoreCalConfigItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074418_added_entity_KpiCalItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074518_added_entity_KpiScoreReference.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074618_added_entity_KpiAssGroupInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074718_added_entity_KpiAssTemplateGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074818_added_entity_KpiAssTemplateInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074918_added_entity_KpiScoreInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908075018_added_entity_KpiImproveReport.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908075118_added_entity_KpiImproveReportInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908075218_added_entity_Vendor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908075318_added_entity_Role.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200908073718_added_entity_constraints_KpiAssGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908073918_added_entity_constraints_KpiScoreGradeConfig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074018_added_entity_constraints_KpiTemplateGroupInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074118_added_entity_constraints_KpiAssTemplate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074318_added_entity_constraints_KpiScoreCalConfigItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074418_added_entity_constraints_KpiCalItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074518_added_entity_constraints_KpiScoreReference.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074618_added_entity_constraints_KpiAssGroupInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074718_added_entity_constraints_KpiAssTemplateGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074818_added_entity_constraints_KpiAssTemplateInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908074918_added_entity_constraints_KpiScoreInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200908075118_added_entity_constraints_KpiImproveReportInfo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

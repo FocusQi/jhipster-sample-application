@@ -1,0 +1,79 @@
+{
+  "name": "KpiAssTemplateInfo",
+  "fields": [
+    {
+      "fieldName": "assCode",
+      "fieldType": "String",
+      "javadoc": "考核单号",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "totalScore",
+      "fieldType": "Integer",
+      "javadoc": "总得分"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AssStatus",
+      "javadoc": "状态",
+      "fieldValues": "COMPLETE,UNDER_REVIEW,REVIEW_OK,REVIEW_NG,NOT_FINISHED,OVERDUE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "javadoc": "创建者"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "javadoc": "创建日期"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "javadoc": "修改者"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "javadoc": "修改日期"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kpiScoreInfo",
+      "otherEntityRelationshipName": "assTemplateInfo",
+      "javadoc": "一个【考核模板明细】有多个【分数详情】",
+      "relationshipName": "scoreInfo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "kpiAssTemplateInfo",
+      "javadoc": "多个【考核模板明细】属于一个【用户】",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "kpiAssTemplateGroup",
+      "otherEntityRelationshipName": "assTemplateInfo",
+      "relationshipName": "assTemplateGroup",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200908074818",
+  "javadoc": "考核模板明细\\n@author cq",
+  "entityTableName": "srm_kpi_ass_template_info",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["megaframework"]
+}
